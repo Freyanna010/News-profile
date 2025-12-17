@@ -5,7 +5,7 @@ import classes from './Header.module.scss';
 const Header = () => {
   return (
     <header className={classes.header}>
-      <div>
+      <div className={classes.leftFlex}>
         <div className={classes.logo}>
           <img src={logo} />
         </div>
@@ -13,6 +13,13 @@ const Header = () => {
           <h1>NewsYeaHub</h1>
         </div>
       </div>
+
+      <nav>
+        <p>новости</p>
+        <p>главная</p>
+        <p>профиль</p>
+        <p>регистрация</p>
+      </nav>
     </header>
   );
 };
