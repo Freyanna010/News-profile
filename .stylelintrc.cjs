@@ -3,7 +3,7 @@ module.exports = {
   plugins: ['stylelint-order'],
   rules: {
     'order/properties-alphabetical-order': true,
-
+    //настройка camelCase
     'selector-class-pattern': [
       '^[a-z][a-zA-Z0-9]*$',
       {
