@@ -1,0 +1,75 @@
+/* Reset CSS в SCSS формате */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  line-height: 1.15;
+  text-size-adjust: 100%;
+}
+
+body {
+  min-height: 100vh;
+  scroll-behavior: smooth;
+  text-rendering: optimizespeed;
+}
+
+/* Убираем стандартные стили для списков */
+ul,
+ol {
+  list-style: none;
+}
+
+/* Ссылки наследуют цвет текста */
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Убираем стандартные стили для кнопок и полей ввода */
+button,
+input,
+textarea,
+select {
+  background: none;
+  border: none;
+  color: inherit;
+  font: inherit;
+  outline: none;
+}
+
+/* Для изображений */
+img {
+  display: block;
+  height: auto;
+  max-width: 100%;
+}
+
+/* Для таблиц */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* Убираем стандартный стиль для fieldset */
+fieldset {
+  border: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* Сброс стилей для цитат */
+blockquote,
+q {
+  quotes: none;
+}
+
+blockquote::before,
+blockquote::after,
+q::before,
+q::after {
+  content: '';
+  content: none;
+}

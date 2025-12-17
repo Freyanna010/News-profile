@@ -1,13 +1,32 @@
 .header {
     align-items: center;
-    background-color: #53c5c5;
+    background-color: #cfcfcf;
     color: white;
     display: flex;
     justify-content: space-between;
-    padding: 10px 20px;
+    padding: 0.5rem;
+    width: 100%;
 }
 
 .logo {
-    font-size: 20px;
-    font-Weight: bold;
+    $size: 2.5rem;
+
+    border-radius: 50%;
+    display: inline-block;
+    height: $size;
+    mask: radial-gradient(circle at center,
+            white 0%,
+            white calc(100% - 2px),
+            transparent calc(100% - 1px),
+            transparent 100%);
+    overflow: hidden;
+    position: relative;
+    width: $size;
+
+    img {
+        display: block;
+        height: 100%;
+        object-fit: cover;
+        width: 100%;
+    }
 }

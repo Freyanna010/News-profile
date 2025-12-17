@@ -1,11 +1,20 @@
+import logo from '@app/assets/logo.avif';
+
 import classes from './Header.module.scss';
 
-const Headers = () => {
+const Header = () => {
   return (
-    <header>
-      <div className={classes.logo}>NewsYearHub</div>
+    <header className={classes.header}>
+      <div>
+        <div className={classes.logo}>
+          <img src={logo} />
+        </div>
+        <div className={classes.title}>
+          <h1>NewsYeaHub</h1>
+        </div>
+      </div>
     </header>
   );
 };
 
-export default Headers;
+export default Header;
