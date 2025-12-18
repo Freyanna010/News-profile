@@ -9,10 +9,9 @@
 }
 
 .leftFlex {
-    place-content: center flex-start;
     display: flex;
     gap: 0.5rem;
-
+    place-content: center flex-start;
 }
 
 

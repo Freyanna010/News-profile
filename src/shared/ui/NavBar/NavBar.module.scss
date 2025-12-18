@@ -1,0 +1,71 @@
+.navBar {
+    border-radius: 8px;
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 1rem;
+}
+
+.vertical {
+    flex-direction: column;
+}
+
+.horizontal {
+    flex-direction: row;
+}
+
+.spacingNone {
+    gap: 0;
+}
+
+.spacingSmall {
+    gap: 0.5rem;
+}
+
+.spacingMedium {
+    gap: 1rem;
+}
+
+.spacingLarge {
+    gap: 2rem;
+}
+
+.alignStart {
+    align-items: flex-start;
+}
+
+.alignCenter {
+    align-items: center;
+}
+
+.alignEnd {
+    align-items: flex-end;
+}
+
+.alignStretch {
+    align-items: stretch;
+}
+
+.justifyStart {
+    justify-content: flex-start;
+}
+
+.justifyCenter {
+    justify-content: center;
+}
+
+.justifyEnd {
+    justify-content: flex-end;
+}
+
+.justifyBetween {
+    justify-content: space-between;
+}
+
+.justifyAround {
+    justify-content: space-around;
+}
+
+.justifyEvenly {
+    justify-content: space-evenly;
+}

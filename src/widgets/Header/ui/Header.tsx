@@ -1,5 +1,7 @@
 import logo from '@app/assets/logo.avif';
 
+import { NavBar } from '@/shared/ui/NavBar';
+
 import classes from './Header.module.scss';
 
 const Header = () => {
@@ -14,12 +16,12 @@ const Header = () => {
         </div>
       </div>
 
-      <nav>
+      <NavBar type="horizontal">
         <p>новости</p>
         <p>главная</p>
         <p>профиль</p>
         <p>регистрация</p>
-      </nav>
+      </NavBar>
     </header>
   );
 };
