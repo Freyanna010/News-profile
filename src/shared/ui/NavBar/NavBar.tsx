@@ -4,7 +4,7 @@ import clsx from 'clsx';
 import classes from './NavBar.module.scss';
 import type { NavBarProps } from './types';
 import { DEFAULTS } from './constants';
-import { CLASS_MAPPINGS } from './classConfig';
+import { CLASS_MAPPINGS } from './config';
 
 const NavBar: React.FC<NavBarProps> = ({
   children,
