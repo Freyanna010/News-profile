@@ -1,7 +1,7 @@
 import logo from '@app/assets/logo.avif';
 
 import { NavBar } from '@/shared/ui/NavBar';
-import Link from '@/shared/ui/Link/Link';
+import { AppLink } from '@/shared/ui/AppLink';
 
 import classes from './Header.module.scss';
 
@@ -18,18 +18,15 @@ const Header = () => {
       </div>
 
       <NavBar type="horizontal">
-        <Link to="/news">
+        <AppLink to="/news" type="primary">
           <p>новости</p>
-        </Link>
-        <Link to="/news">
+        </AppLink>
+        <AppLink to="/news" type="primary">
           <p>новости</p>
-        </Link>
-        <Link to="/news">
+        </AppLink>
+        <AppLink to="/news" type="primary">
           <p>новости</p>
-        </Link>
-        <Link to="/news">
-          <p>новости</p>
-        </Link>
+        </AppLink>
       </NavBar>
     </header>
   );

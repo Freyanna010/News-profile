@@ -1,4 +1,4 @@
-import classes from './Link.module.scss';
+import classes from './AppLink.module.scss';
 import { LINK_TYPES, LINK_SIZES } from './constants';
 
 export const CLASS_MAPPINGS = {

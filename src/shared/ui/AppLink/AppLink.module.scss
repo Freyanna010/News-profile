@@ -1,17 +1,23 @@
-/* Базовые стили ссылки */
 .link {
-    background-color: #dc3545;
+    align-items: center;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    display: inline-flex;
+    font-weight: 500;
+    justify-content: center;
+    text-decoration: none;
+    transition: all 0.2s ease;
 }
 
 
 .primary {
     background-color: transparent;
-    color: #1976d2;
+    color: #4600b8;
 }
 
 .primary:hover {
-    background-color: rgb(25 118 210 / 4%);
-    color: #1565c0;
+    background-color: rgb(122 110 155 / 14.4%);
+    color: #121118;
 }
 
 .secondary {
@@ -36,16 +42,16 @@
 
 
 .small {
-    font-size: 12px;
-    padding: 4px 8px;
+    font-size: 1rem;
+    padding: 0.2em 0.4em
 }
 
 .medium {
-    font-size: 14px;
-    padding: 8px 16px;
+    font-size: 1.2rem;
+    padding: 0.333em 0.667em;
 }
 
 .large {
-    font-size: 16px;
-    padding: 12px 24px;
+    font-size: 1.5rem;
+    padding: 0.4em 0.8em;
 }
