@@ -18,7 +18,7 @@ const Header = () => {
           </div>
         </div>
 
-        <NavBar type="horizontal">
+        <NavBar type="horizontal" align="end" spacing="small">
           <AppLink to="/news" type="primary">
             новости
           </AppLink>
