@@ -1,4 +1,4 @@
-export const NotFoundPage = () => {
+const NotFoundPage = () => {
   return (
     <div>
       <h1>404 - Страница не найдена</h1>

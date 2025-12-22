@@ -1,4 +1,4 @@
-export const NewsPage = () => {
+const NewsPage = () => {
   return (
     <div>
       <h1>Новости</h1>
