@@ -1,4 +1,4 @@
-import logo from '@app/assets/logo.avif';
+import logo from '@shared/assets/logo.avif';
 
 import { NavBar } from '@/shared/ui/NavBar';
 import { AppLink } from '@/shared/ui/AppLink';
