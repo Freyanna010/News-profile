@@ -1,0 +1,16 @@
+.authLayout {
+    align-items: center;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    display: flex;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+.content {
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgb(0 0 0 / 20%);
+    max-width: 400px;
+    padding: 40px;
+    width: 100%;
+}
