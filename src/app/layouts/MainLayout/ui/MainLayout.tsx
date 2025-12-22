@@ -1,5 +1,18 @@
+import { Outlet } from 'react-router-dom';
+
+import { Header } from '@/widgets/Header';
+
+import classes from './MainLayout.module.scss';
+
 const MainLayout = () => {
-  return <div></div>;
+  return (
+    <>
+      <Header />
+      <main className={classes.main}>
+        <Outlet />
+      </main>
+    </>
+  );
 };
 
 export default MainLayout;
