@@ -20,6 +20,7 @@ const Header = () => {
         </div>
 
         <NavBar type="horizontal" align="end" spacing="small">
+          {/*TODO: добавит отображение что ссылка нажата */}
           <AppLink to={RoutePath.news} type="primary">
             <p>новости</p>
           </AppLink>
