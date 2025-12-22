@@ -2,7 +2,7 @@ import logo from '@shared/assets/logo.avif';
 
 import { NavBar } from '@/shared/ui/NavBar';
 import { AppLink } from '@/shared/ui/AppLink';
-import { RoutePath } from '@/shared/config/routeConfig/routeConfig';
+import { RoutePath } from '@/shared/constans/route';
 
 import classes from './Header.module.scss';
 

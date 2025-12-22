@@ -1,0 +1,18 @@
+//TODO: убрать если не пригодится
+export const AppRoutes = {
+  MAIN: 'main',
+  NEWS: 'news',
+  PROFILE: 'profile',
+  LOGIN: 'login',
+  NOT_FOUND: 'not_found',
+} as const;
+
+export type AppRoutes = (typeof AppRoutes)[keyof typeof AppRoutes];
+
+export const RoutePath: Record<AppRoutes, string> = {
+  [AppRoutes.MAIN]: '/',
+  [AppRoutes.NEWS]: '/news',
+  [AppRoutes.PROFILE]: '/profile/:id?',
+  [AppRoutes.LOGIN]: '/login',
+  [AppRoutes.NOT_FOUND]: '*',
+};
