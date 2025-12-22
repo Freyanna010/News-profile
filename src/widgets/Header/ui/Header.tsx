@@ -30,7 +30,7 @@ const Header = () => {
             <p>профиль</p>
           </AppLink>
           <AppLink to={RoutePath.login} type="primary">
-            //TODO: добавить "выйти"
+            {/*TODO: добавить "выйти" */}
             <p>войти</p>
           </AppLink>
         </NavBar>
