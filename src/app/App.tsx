@@ -1,14 +1,10 @@
-import { Header } from '@/widgets/Header';
+import { RouterProvider } from 'react-router-dom';
 
 import './styles/index.scss';
+import { router } from './providers/router';
 
 function App() {
-  return (
-    <>
-      <Header />
-      <div>NEWS PROFILES</div>
-    </>
-  );
+  return <RouterProvider router={router} />;
 }
 
 export default App;
