@@ -6,44 +6,69 @@
     font-weight: 500;
     justify-content: center;
     text-decoration: none;
-    transition: all 0.2s ease;
+    transition: all 0.3s ease-in-out;
+    transition-property: color, background-color, border-color, transform, box-shadow;
 }
-
 
 .primary {
     background-color: transparent;
+    border: 0.1em solid transparent;
     color: #4600b8;
+    transition:
+        color 0.25s ease,
+        background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+        border-color 0.3s ease,
+        transform 0.2s ease;
 }
 
 .primary:hover {
     background-color: rgb(122 110 155 / 14.4%);
+    box-shadow: 0 2px 8px rgb(70 0 184 / 10%);
     color: #121118;
+    transform: translateY(-1px);
 }
 
 .secondary {
     background-color: transparent;
-    color: #6c757d;
+    border: 0.1em solid #4600b8;
+    color: #121118;
+    transition:
+        color 0.25s ease,
+        background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+        border-color 0.3s ease,
+        transform 0.2s ease,
+        box-shadow 0.3s ease;
 }
 
 .secondary:hover {
-    background-color: rgb(108 117 125 / 4%);
-    color: #545b62;
+    background-color: rgb(70 0 184 / 8%);
+    border-color: #320084;
+    color: #4600b8;
+    transform: translateY(-1px);
 }
 
 .error {
     background-color: transparent;
+    border: 0.1em solid transparent;
     color: #dc3545;
+    transition:
+        color 0.25s ease,
+        background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+        border-color 0.3s ease,
+        transform 0.2s ease;
 }
 
 .error:hover {
-    background-color: rgb(220 53 69 / 4%);
+    background-color: rgb(220 53 69 / 8%);
+    border-color: rgb(220 53 69 / 20%);
+    box-shadow: 0 2px 8px rgb(220 53 69 / 10%);
     color: #bd2130;
+    transform: translateY(-1px);
 }
-
 
 .small {
     font-size: 1rem;
-    padding: 0.2em 0.4em
+    padding: 0.2em 0.4em;
 }
 
 .medium {
