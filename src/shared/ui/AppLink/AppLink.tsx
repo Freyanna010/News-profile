@@ -22,7 +22,7 @@ const AppLink: React.FC<LinkProps> = (props) => {
   const isActive = Boolean(match);
 
   const currentType = isActive && activeType ? activeType : type;
-  //TODO: добавит для какждого типо свой active стиль?
+  //TODO: добавить для какждого типа свой active стиль?
   const linkClasses = clsx(
     classes.link,
     CLASS_MAPPINGS.type[currentType],
