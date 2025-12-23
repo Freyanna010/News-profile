@@ -20,14 +20,13 @@ const Header = () => {
         </div>
 
         <NavBar type="horizontal" align="end" spacing="small">
-          {/*TODO: добавит отображение что ссылка нажата */}
-          <AppLink to={RoutePath.news} type="primary">
-            <p>новости</p>
-          </AppLink>
-          <AppLink to={RoutePath.main} type="primary">
+          <AppLink to={RoutePath.main} type="primary" activeType="secondary">
             <p>главная</p>
           </AppLink>
-          <AppLink to={RoutePath.profile} type="primary">
+          <AppLink to={RoutePath.news} type="primary" activeType="secondary">
+            <p>новости</p>
+          </AppLink>
+          <AppLink to={RoutePath.profile} type="primary" activeType="secondary">
             <p>профиль</p>
           </AppLink>
           <AppLink to={RoutePath.login} type="primary">

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link as RouterLink } from 'react-router-dom';
+import { Link as RouterLink, useMatch } from 'react-router-dom';
 import clsx from 'clsx';
 
 import classes from './AppLink.module.scss';
@@ -13,13 +13,19 @@ const AppLink: React.FC<LinkProps> = (props) => {
     to,
     type = DEFAULTS.type,
     size = DEFAULTS.size,
+    activeType,
     className,
     ...restProps
   } = props;
 
+  const match = useMatch(typeof to === 'string' ? to : to.pathname || '/');
+  const isActive = Boolean(match);
+
+  const currentType = isActive && activeType ? activeType : type;
+  //TODO: добавит для какждого типо свой active стиль?
   const linkClasses = clsx(
     classes.link,
-    CLASS_MAPPINGS.type[type],
+    CLASS_MAPPINGS.type[currentType],
     CLASS_MAPPINGS.size[size],
     className
   );

@@ -10,5 +10,6 @@ export interface LinkProps extends RouterLinkProps {
   children: ReactNode;
   type?: LinkType;
   size?: LinkSize;
+  activeType?: LinkType;
   className?: string;
 }
