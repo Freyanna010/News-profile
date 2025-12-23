@@ -2,7 +2,7 @@ import logo from '@shared/assets/logo.avif';
 
 import { NavBar } from '@/shared/ui/NavBar';
 import { AppLink } from '@/shared/ui/AppLink';
-import { NAV_HEADER_ITEMS } from '@/shared/constans/navItems';
+import { NAV_HEADER_ITEMS } from '@/shared/constans';
 
 import classes from './Header.module.scss';
 

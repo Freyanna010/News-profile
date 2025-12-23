@@ -9,7 +9,7 @@ import { LoginPage } from '@/pages/LoginPage';
 import { NewsPage } from '@/pages/NewsPage';
 import { NotFoundPage } from '@/pages/NotFoundPage';
 import { ProfilePage } from '@/pages/ProfilePage';
-import { RoutePath } from '@/shared/constans/route';
+import { RoutePath } from '@/shared/constans';
 
 import ProtectedRoute from './ProtectedRout';
 

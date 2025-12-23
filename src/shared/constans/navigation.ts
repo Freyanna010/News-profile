@@ -1,4 +1,4 @@
-import { RoutePath } from './route';
+import { RoutePath } from './routes';
 
 export const NAV_HEADER_ITEMS = [
   { to: RoutePath.main, label: 'главная' },
