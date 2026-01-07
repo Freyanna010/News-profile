@@ -1,8 +1,8 @@
 import { Navigate, useLocation } from 'react-router-dom';
 import type { ReactNode } from 'react';
 
-import { useMockAuth } from '@/shared/libs/useMockAuth/useMockAuth';
 import { RoutePath } from '@/shared/constans/routes';
+import { useMockAuth } from '@/shared/libs';
 
 interface ProtectedRouteProps {
   children: ReactNode;
