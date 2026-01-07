@@ -6,6 +6,7 @@ import { useGetNewsQuery } from '@/features/news-crud/model/api/newsApi';
 import { NewsCard } from '@/entities/news';
 import { NEWS_CONSTANTS } from '@/shared/constans';
 import { usePageFromSearchParams } from '@/shared/libs';
+import { Pagination } from '@/shared/ui/Pagination';
 
 const NewsPage = () => {
   const [_, setSearchParams] = useSearchParams();
@@ -39,6 +40,7 @@ const NewsPage = () => {
   };
   const handleLimitChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setLimit(Number(e.target.value));
+    setSearchParams({ page: String(NEWS_CONSTANTS.DEFAULT_PAGE) });
   };
 
   if (isLoading) return <MoonLoader color="#5a17ff" size={90} />;
@@ -54,27 +56,11 @@ const NewsPage = () => {
         ))}
       </ul>
 
-      {/* TODO: Pagination в ui */}
-      <div style={{ marginTop: '20px' }}>
-        <button
-          disabled={currentPage <= 1}
-          onClick={() => handlePageChange(currentPage - 1)}
-          style={{ marginRight: '10px' }}
-        >
-          Назад
-        </button>
-
-        <span style={{ margin: '0 10px' }}>
-          Страница {currentPage} из {totalPages}
-        </span>
-
-        <button
-          disabled={currentPage >= totalPages}
-          onClick={() => handlePageChange(currentPage + 1)}
-        >
-          Вперед
-        </button>
-      </div>
+      <Pagination
+        currentPage={currentPage}
+        totalPages={totalPages}
+        onPageChange={handlePageChange}
+      />
 
       <div>
         <label htmlFor="pageSize">Показывать:</label>
