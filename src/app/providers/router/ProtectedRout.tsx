@@ -1,7 +1,7 @@
 import { Navigate, useLocation } from 'react-router-dom';
 import type { ReactNode } from 'react';
 
-import { useMockAuth } from '@/shared/lib/hooks/useMockAuth';
+import { useMockAuth } from '@/shared/libs/useMockAuth/useMockAuth';
 import { RoutePath } from '@/shared/constans/routes';
 
 interface ProtectedRouteProps {
