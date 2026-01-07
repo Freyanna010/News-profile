@@ -1,2 +1,1 @@
-export { useMockAuth } from './useMockAuth';
 export { usePageFromSearchParams } from './usePageFromSearchParams';

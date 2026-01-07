@@ -1,19 +1,18 @@
 import { MoonLoader } from 'react-spinners';
-import { useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 
 import { useGetNewsQuery } from '@/features/news-crud/model/api/newsApi';
 import { NewsCard } from '@/entities/news';
 import { NEWS_CONSTANTS } from '@/shared/constans';
+import { usePageFromSearchParams } from '@/shared/libs';
 
 const NewsPage = () => {
-  const [searchParams, setSearchParams] = useSearchParams();
+  const [_, setSearchParams] = useSearchParams();
 
-  //TODO: вынести хук
-  const pageParam = searchParams.get('page');
-  const currentPage = pageParam
-    ? Number(pageParam)
-    : NEWS_CONSTANTS.DEFAULT_PAGE;
+  const currentPage = usePageFromSearchParams(
+    'page',
+    NEWS_CONSTANTS.DEFAULT_PAGE
+  );
 
   //TODO: добавить изменение лимита
   const totalPages = Math.ceil(
