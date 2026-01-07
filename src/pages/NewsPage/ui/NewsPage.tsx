@@ -1,5 +1,6 @@
 import { MoonLoader } from 'react-spinners';
 import { useSearchParams } from 'react-router-dom';
+import { useState } from 'react';
 
 import { useGetNewsQuery } from '@/features/news-crud/model/api/newsApi';
 import { NewsCard } from '@/entities/news';
@@ -8,16 +9,14 @@ import { usePageFromSearchParams } from '@/shared/libs';
 
 const NewsPage = () => {
   const [_, setSearchParams] = useSearchParams();
+  const [limit, setLimit] = useState<number>(NEWS_CONSTANTS.DEFAULT_LIMIT);
 
   const currentPage = usePageFromSearchParams(
     'page',
     NEWS_CONSTANTS.DEFAULT_PAGE
   );
 
-  //TODO: добавить изменение лимита
-  const totalPages = Math.ceil(
-    NEWS_CONSTANTS.TOTAL_ITEMS / NEWS_CONSTANTS.DEFAULT_LIMIT
-  );
+  const totalPages = Math.ceil(NEWS_CONSTANTS.TOTAL_ITEMS / limit);
 
   const {
     data: news,
@@ -37,6 +36,9 @@ const NewsPage = () => {
     requestAnimationFrame(() => {
       window.scrollTo({ top: 0, behavior: 'smooth' });
     });
+  };
+  const handleLimitChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    setLimit(Number(e.target.value));
   };
 
   if (isLoading) return <MoonLoader color="#5a17ff" size={90} />;
@@ -72,6 +74,17 @@ const NewsPage = () => {
         >
           Вперед
         </button>
+      </div>
+
+      <div>
+        <label htmlFor="pageSize">Показывать:</label>
+
+        <select id="pageSize" value={limit} onChange={handleLimitChange}>
+          <option value="10">10</option>
+          <option value="20">20</option>
+          <option value="50">50</option>
+          <option value={NEWS_CONSTANTS.TOTAL_ITEMS}>все</option>
+        </select>
       </div>
     </div>
   );
