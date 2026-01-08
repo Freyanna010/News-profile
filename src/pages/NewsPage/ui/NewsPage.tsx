@@ -25,7 +25,7 @@ const NewsPage = () => {
     error,
   } = useGetNewsQuery({
     page: currentPage,
-    limit: NEWS_CONSTANTS.DEFAULT_LIMIT,
+    limit,
   });
 
   const handlePageChange = (newPage: number) => {

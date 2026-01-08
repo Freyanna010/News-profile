@@ -11,17 +11,26 @@ const Pagination: FC<PaginationProps> = (props) => {
   if (totalPages <= 1) {
     return null;
   }
+  //TODO: вынести
+  const getPagesNumbers = (): number[] => {
+    const pages = [];
+
+    if (totalPages < 7) {
+      for (let page = 1; page <= totalPages; page++) {
+        pages.push(page);
+      }
+    } else {
+      for (let page = 1; page <= 5; page++) {
+        pages.push(page);
+      }
+    }
+    return pages;
+  };
+
+  const pagesNumbers: number[] = getPagesNumbers();
 
   return (
-    <div
-      style={{
-        display: 'flex',
-        gap: '8px',
-        alignItems: 'center',
-        justifyContent: 'center',
-        marginTop: '20px',
-      }}
-    >
+    <div>
       {/* TODO: вынести в ui/Button */}
       <button
         onClick={() => onPageChange(currentPage - 1)}
@@ -34,9 +43,17 @@ const Pagination: FC<PaginationProps> = (props) => {
         Назад
       </button>
 
-      <span style={{ padding: '0 8px' }}>
-        Страница {currentPage} из {totalPages}
-      </span>
+      {/* TODO: вынести в ui/Button */}
+      {pagesNumbers.map((pageNumber) => (
+        <button
+          onClick={() => onPageChange(pageNumber)}
+          style={{ padding: '0 4px' }}
+        >
+          {pageNumber}
+        </button>
+      ))}
+
+      {totalPages > 5 && <span style={{ padding: '0 4px' }}>...</span>}
 
       <button
         onClick={() => onPageChange(currentPage + 1)}
