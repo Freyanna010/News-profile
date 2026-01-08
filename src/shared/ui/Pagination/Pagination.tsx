@@ -1,5 +1,7 @@
 import type { FC } from 'react';
 
+import { getPagesNumbers } from './getPagesNumbers';
+
 interface PaginationProps {
   currentPage: number;
   totalPages: number;
@@ -11,55 +13,58 @@ const Pagination: FC<PaginationProps> = (props) => {
   if (totalPages <= 1) {
     return null;
   }
-  //TODO: вынести
-  const getPagesNumbers = (): number[] => {
-    const pages = [];
 
-    if (totalPages < 7) {
-      for (let page = 1; page <= totalPages; page++) {
-        pages.push(page);
-      }
-    } else {
-      for (let page = 1; page <= 5; page++) {
-        pages.push(page);
-      }
-    }
-    return pages;
-  };
-
-  const pagesNumbers: number[] = getPagesNumbers();
+  const pagesNumbers = getPagesNumbers(currentPage, totalPages);
 
   return (
     <div>
-      {/* TODO: вынести в ui/Button */}
+      {/* TODO: вынести в ui/IconButton */}
       <button
         onClick={() => onPageChange(currentPage - 1)}
         disabled={currentPage <= 1}
         style={{
-          background: currentPage <= 1 ? '#f0f0f0' : 'white',
           cursor: currentPage <= 1 ? 'not-allowed' : 'pointer',
         }}
       >
         Назад
       </button>
 
-      {/* TODO: вынести в ui/Button */}
-      {pagesNumbers.map((pageNumber) => (
-        <button
-          onClick={() => onPageChange(pageNumber)}
-          style={{ padding: '0 4px' }}
-        >
-          {pageNumber}
-        </button>
-      ))}
+      {pagesNumbers.map((item, index) => {
+        if (item === '...') {
+          return (
+            <span key={`dots-${index}`} style={{ padding: '0 4px' }}>
+              ...
+            </span>
+          );
+        }
 
-      {totalPages > 5 && <span style={{ padding: '0 4px' }}>...</span>}
+        const pageNumber = item as number;
+        const isActive = pageNumber === currentPage;
+
+        return (
+          <button
+            key={`page-${pageNumber}`}
+            onClick={() => onPageChange(pageNumber)}
+            style={{
+              padding: '4px 8px',
+              margin: '0 2px',
+              background: isActive ? '#7700ffff' : 'white',
+              color: isActive ? 'white' : 'black',
+              cursor: 'pointer',
+              borderRadius: '4px',
+              minWidth: '32px',
+            }}
+            disabled={isActive}
+          >
+            {pageNumber}
+          </button>
+        );
+      })}
 
       <button
         onClick={() => onPageChange(currentPage + 1)}
         disabled={currentPage >= totalPages}
         style={{
-          background: currentPage >= totalPages ? '#f0f0f0' : 'white',
           cursor: currentPage >= totalPages ? 'not-allowed' : 'pointer',
         }}
       >
