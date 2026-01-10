@@ -1,33 +1,5 @@
-.cardContainer {
-    /* TODO: переменная */
-    background-color: #f8f8f8;
-    border-radius: 0.5rem;
-
-    /* TODO: переменная */
-    box-shadow: 0 2px 4px rgb(197 197 197 / 50%);
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
+.newsCard {
     padding: 1rem;
-    transition: all 0.3s ease;
-    width: 100%;
-
-    &:hover {
-        box-shadow: 0 4px 8px rgb(197 197 197 / 60%);
-        transform: scale(1.02);
-    }
-
-    &:focus {
-        box-shadow: 0 0 0 0.1875rem rgb(119 0 255 / 30%),
-            0 4px 8px rgb(197 197 197 / 60%);
-        outline: none;
-        transform: scale(1.02);
-    }
-
-    &:hover,
-    &:focus {
-        cursor: pointer;
-    }
 }
 
 .title {
