@@ -1,6 +1,7 @@
 .cardContainer {
     /* TODO: переменная */
     background-color: #f8f8f8;
+    border-radius: 0.5rem;
 
     /* TODO: переменная */
     box-shadow: 0 2px 4px rgb(197 197 197 / 50%);
@@ -8,16 +9,38 @@
     flex-direction: column;
     gap: 0.5rem;
     padding: 1rem;
+    transition: all 0.3s ease;
     width: 100%;
+
+    &:hover {
+        box-shadow: 0 4px 8px rgb(197 197 197 / 60%);
+        transform: scale(1.02);
+    }
+
+    &:focus {
+        box-shadow: 0 0 0 0.1875rem rgb(119 0 255 / 30%),
+            0 4px 8px rgb(197 197 197 / 60%);
+        outline: none;
+        transform: scale(1.02);
+    }
+
+    &:hover,
+    &:focus {
+        cursor: pointer;
+    }
 }
 
 .title {
     /* TODO: переменная */
     color: #4600e9;
-    size: 0.2rem;
-
+    size: 0.5rem;
+    text-transform: uppercase
 }
 
 .body {
     size: 0.8rem;
+
+    &::first-letter {
+        text-transform: uppercase;
+    }
 }

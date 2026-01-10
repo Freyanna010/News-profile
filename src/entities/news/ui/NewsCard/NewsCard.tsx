@@ -13,7 +13,7 @@ const NewsCard: FC<NewsCardProps> = ({ title: tile, body }) => {
     //TODO: создать слоты
     <div className={classes.cardContainer}>
       <h2 className={classes.title}>{tile}</h2>
-      <div>{body}</div>
+      <p className={classes.body}>{body}</p>
     </div>
   );
 };

@@ -1,9 +1,8 @@
-import { MoonLoader } from 'react-spinners';
 import { useSearchParams } from 'react-router-dom';
 import { useState } from 'react';
 
 import { useGetNewsQuery } from '@/features/news-crud/model/api/newsApi';
-import { NewsCard } from '@/entities/news';
+import { NewsList } from '@/entities/news';
 import { NEWS_CONSTANTS } from '@/shared/constans';
 import { usePageFromSearchParams } from '@/shared/libs';
 import { Pagination } from '@/shared/ui/Pagination';
@@ -45,18 +44,10 @@ const NewsPage = () => {
     setSearchParams({ page: String(NEWS_CONSTANTS.DEFAULT_PAGE) });
   };
 
-  if (isLoading) return <MoonLoader color="#5a17ff" size={90} />;
-  if (error) return <div>Ошибка: {JSON.stringify(error)}</div>;
   return (
     <div className={classes.pageContainer}>
-      <h1>Новости</h1>
-      <ul>
-        {news?.map((item) => (
-          <li key={item.id}>
-            <NewsCard title={item.title} body={item.body} />
-          </li>
-        ))}
-      </ul>
+      <NewsList news={news} isLoading={isLoading} error={error} />
+
       <div className={classes.paginationContainer}>
         <Pagination
           currentPage={currentPage}
