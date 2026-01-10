@@ -1,0 +1,23 @@
+.cardContainer {
+    /* TODO: переменная */
+    background-color: #f8f8f8;
+
+    /* TODO: переменная */
+    box-shadow: 0 2px 4px rgb(197 197 197 / 50%);
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 1rem;
+    width: 100%;
+}
+
+.title {
+    /* TODO: переменная */
+    color: #4600e9;
+    size: 0.2rem;
+
+}
+
+.body {
+    size: 0.8rem;
+}

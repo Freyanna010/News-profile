@@ -8,6 +8,8 @@ import { NEWS_CONSTANTS } from '@/shared/constans';
 import { usePageFromSearchParams } from '@/shared/libs';
 import { Pagination } from '@/shared/ui/Pagination';
 
+import classes from './NewsPage.module.scss';
+
 const NewsPage = () => {
   const [_, setSearchParams] = useSearchParams();
   const [limit, setLimit] = useState<number>(NEWS_CONSTANTS.DEFAULT_LIMIT);
@@ -46,7 +48,7 @@ const NewsPage = () => {
   if (isLoading) return <MoonLoader color="#5a17ff" size={90} />;
   if (error) return <div>Ошибка: {JSON.stringify(error)}</div>;
   return (
-    <div>
+    <div className={classes.pageContainer}>
       <h1>Новости</h1>
       <ul>
         {news?.map((item) => (
@@ -55,22 +57,25 @@ const NewsPage = () => {
           </li>
         ))}
       </ul>
+      <div className={classes.paginationContainer}>
+        <Pagination
+          currentPage={currentPage}
+          totalPages={totalPages}
+          onPageChange={handlePageChange}
+          className={classes.pagination}
+        />
 
-      <Pagination
-        currentPage={currentPage}
-        totalPages={totalPages}
-        onPageChange={handlePageChange}
-      />
+        {/* TODO: создать ui */}
+        <div className={classes.pageSizeSelector}>
+          <label htmlFor="pageSize">Показывать:</label>
 
-      <div>
-        <label htmlFor="pageSize">Показывать:</label>
-
-        <select id="pageSize" value={limit} onChange={handleLimitChange}>
-          <option value="10">10</option>
-          <option value="20">20</option>
-          <option value="50">50</option>
-          <option value={NEWS_CONSTANTS.TOTAL_ITEMS}>все</option>
-        </select>
+          <select id="pageSize" value={limit} onChange={handleLimitChange}>
+            <option value="10">10</option>
+            <option value="20">20</option>
+            <option value="50">50</option>
+            <option value={NEWS_CONSTANTS.TOTAL_ITEMS}>все</option>
+          </select>
+        </div>
       </div>
     </div>
   );

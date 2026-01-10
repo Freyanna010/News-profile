@@ -1,0 +1,38 @@
+.pageContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    justify-content: space-around
+}
+
+.paginationContainer {
+    align-items: center;
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: 1fr auto 1fr;
+    margin-top: 1rem;
+
+    @media (width <= 768px) {
+        gap: 1rem;
+        grid-template-columns: 1fr;
+    }
+
+    .pagination {
+        grid-column: 2;
+        justify-self: center;
+
+        @media (width <= 768px) {
+            grid-column: 1;
+        }
+    }
+
+    .pageSizeSelector {
+        grid-column: 3;
+        justify-self: end;
+
+        @media (width <= 768px) {
+            grid-column: 1;
+            justify-self: center;
+        }
+    }
+}

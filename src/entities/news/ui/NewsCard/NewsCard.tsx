@@ -1,5 +1,7 @@
 import { type FC } from 'react';
 
+import classes from './NewsCard.module.scss';
+
 interface NewsCardProps {
   title: string;
   body: string;
@@ -8,8 +10,9 @@ interface NewsCardProps {
 const NewsCard: FC<NewsCardProps> = ({ title: tile, body }) => {
   return (
     //TODO: создать ui-карточки
-    <div>
-      <h2>{tile}</h2>
+    //TODO: создать слоты
+    <div className={classes.cardContainer}>
+      <h2 className={classes.title}>{tile}</h2>
       <div>{body}</div>
     </div>
   );

@@ -1,6 +1,7 @@
 .header {
-    background-color: #cfcfcf;
-    color: white;
+    /* TODO: переменная */
+    background-color: #f8f8f8;
+    color: rgb(59 57 57);
     width: 100%;
 }
 
@@ -12,11 +13,11 @@
     max-width: 1200px;
     padding: 0.5rem;
 
-    @media (width <= 1024px) {
+    @media (width <=1024px) {
         padding: 0.4rem;
     }
 
-    @media (width <= 640px) {
+    @media (width <=640px) {
         padding: 0.3rem;
     }
 }
@@ -53,7 +54,7 @@
         user-select: none;
         white-space: nowrap;
 
-        @media (width <= 640px) {
+        @media (width <=640px) {
             font-size: 1.1rem;
         }
     }

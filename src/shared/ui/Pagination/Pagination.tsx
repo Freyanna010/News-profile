@@ -1,14 +1,17 @@
 import type { FC } from 'react';
+import clsx from 'clsx';
 
 import { getPagesNumbers } from './getPagesNumbers';
+import classes from './Pagination.module.scss';
 
 interface PaginationProps {
   currentPage: number;
   totalPages: number;
   onPageChange: (page: number) => void;
+  className?: string;
 }
 const Pagination: FC<PaginationProps> = (props) => {
-  const { currentPage, totalPages, onPageChange } = props;
+  const { currentPage, totalPages, onPageChange, className = '' } = props;
 
   if (totalPages <= 1) {
     return null;
@@ -17,7 +20,7 @@ const Pagination: FC<PaginationProps> = (props) => {
   const pagesNumbers = getPagesNumbers(currentPage, totalPages);
 
   return (
-    <div>
+    <div className={clsx(classes.pagination, className)}>
       {/* TODO: вынести в ui/IconButton */}
       <button
         onClick={() => onPageChange(currentPage - 1)}
@@ -32,7 +35,7 @@ const Pagination: FC<PaginationProps> = (props) => {
       {pagesNumbers.map((item, index) => {
         if (item === '...') {
           return (
-            <span key={`dots-${index}`} style={{ padding: '0 4px' }}>
+            <span key={`dots-${index}`} className={classes.dots}>
               ...
             </span>
           );
