@@ -1,5 +1,7 @@
 import { type FC } from 'react';
 
+import Card from '@/shared/ui/Card/Card';
+
 import classes from './NewsCard.module.scss';
 
 interface NewsCardProps {
@@ -7,14 +9,13 @@ interface NewsCardProps {
   body: string;
 }
 
-const NewsCard: FC<NewsCardProps> = ({ title: tile, body }) => {
+const NewsCard: FC<NewsCardProps> = ({ title, body }) => {
   return (
-    //TODO: создать ui-карточки
     //TODO: создать слоты
-    <div className={classes.cardContainer}>
-      <h2 className={classes.title}>{tile}</h2>
+    <Card className={classes.newsCard} withHoverFocus={true}>
+      <h2 className={classes.title}>{title}</h2>
       <p className={classes.body}>{body}</p>
-    </div>
+    </Card>
   );
 };
 
