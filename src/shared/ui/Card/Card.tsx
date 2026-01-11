@@ -2,7 +2,7 @@ import type { FC, MouseEvent, KeyboardEvent } from 'react';
 import clxs from 'clsx';
 
 import type { CardProps } from './types';
-import { CLASS_MAPPINGS } from './constans';
+import { CLASS_MAPPINGS } from './config';
 import classes from './Card.module.scss';
 
 const Card: FC<CardProps> = (props) => {
