@@ -57,7 +57,6 @@ const NewsPage = () => {
           className={classes.pagination}
         />
 
-        {/* TODO: создать ui */}
         <div className={classes.pageSizeSelector}>
           <Select
             label="Показывать:"
