@@ -1,3 +1,5 @@
+@use '../../../app/styles/variables.scss'as *;
+
 .link {
     align-items: center;
     border-radius: 0.5rem;
@@ -13,7 +15,7 @@
 .primary {
     background-color: transparent;
     border: 0.1em solid transparent;
-    color: #4600b8;
+    color: $primary-color;
     transition:
         color 0.25s ease,
         background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
@@ -22,16 +24,15 @@
 }
 
 .primary:hover {
-    background-color: rgb(122 110 155 / 14.4%);
-    box-shadow: 0 2px 8px rgb(70 0 184 / 10%);
-    color: #121118;
+    box-shadow: $hover-box-shadow;
+    color: $dark-gray-color;
     transform: translateY(-1px);
 }
 
 .secondary {
     background-color: transparent;
-    border: 0.1em solid #4600b8;
-    color: #121118;
+    border: 0.1em solid $primary-color;
+    color: $dark-gray-color;
     transition:
         color 0.25s ease,
         background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
@@ -41,16 +42,15 @@
 }
 
 .secondary:hover {
-    background-color: rgb(70 0 184 / 8%);
-    border-color: #320084;
-    color: #4600b8;
+    border-color: $primary-color;
+    color: $primary-color;
     transform: translateY(-1px);
 }
 
 .error {
     background-color: transparent;
     border: 0.1em solid transparent;
-    color: #dc3545;
+    color: $error-color;
     transition:
         color 0.25s ease,
         background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
@@ -59,10 +59,9 @@
 }
 
 .error:hover {
-    background-color: rgb(220 53 69 / 8%);
-    border-color: rgb(220 53 69 / 20%);
-    box-shadow: 0 2px 8px rgb(220 53 69 / 10%);
-    color: #bd2130;
+    border-color: $dark-red-color;
+    box-shadow: $hover-box-shadow;
+    color: $error-color;
     transform: translateY(-1px);
 }
 

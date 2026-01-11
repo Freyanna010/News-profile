@@ -1,7 +1,8 @@
+@use '../../../app/styles/variables.scss'as *;
+
 .header {
-    /* TODO: переменная */
-    background-color: #f8f8f8;
-    color: rgb(59 57 57);
+    background-color: $light-bg-color;
+    color: $dark-gray-color;
     width: 100%;
 }
 
