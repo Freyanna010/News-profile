@@ -1,3 +1,34 @@
+@use '../../../app/styles/variables.scss'as *;
+
 .card {
+    background-color: $light-bg-color;
+    border-radius: 0.5rem;
+    box-shadow: $box-shadow;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 1rem;
+    transition: all 0.3s ease;
     width: 100%;
+
+    &:focus-visible {
+        outline: none;
+    }
+}
+
+.cardClickable {
+    cursor: pointer;
+}
+
+.cardInteractive {
+    &:hover {
+        box-shadow: $hover-box-shadow;
+        transform: scale(1.02);
+    }
+
+    &:focus {
+        box-shadow: $focus-box-shadow,
+            $hover-box-shadow;
+        transform: scale(1.02);
+    }
 }

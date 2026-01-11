@@ -1,5 +1,5 @@
 export const CLASS_MAPPINGS = {
   card: 'card',
-  cardClickable: 'card_clickable',
-  cardInteractive: 'card_interactive',
+  cardClickable: 'cardClickable',
+  cardInteractive: 'cardInteractive',
 } as const;

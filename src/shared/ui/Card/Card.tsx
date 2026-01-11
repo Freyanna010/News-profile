@@ -8,15 +8,15 @@ import classes from './Card.module.scss';
 const Card: FC<CardProps> = (props) => {
   const { children, className, onClick, withHoverFocus = true } = props;
   const isClickable = !!onClick;
-  const isInteractive = isClickable && withHoverFocus;
+  withHoverFocus;
 
   const cardClasses = clxs(
-    classes[CLASS_MAPPINGS.card], // Базовый класс карточки
+    classes[CLASS_MAPPINGS.card],
     {
       [classes[CLASS_MAPPINGS.cardClickable]]: isClickable,
-      [classes[CLASS_MAPPINGS.cardInteractive]]: isInteractive,
+      [classes[CLASS_MAPPINGS.cardInteractive]]: withHoverFocus,
     },
-    className // Пользовательские классы
+    className
   );
 
   const handleKeyDown = (event: KeyboardEvent<HTMLDivElement>) => {
