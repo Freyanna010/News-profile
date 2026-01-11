@@ -3,9 +3,10 @@ import { useState } from 'react';
 
 import { useGetNewsQuery } from '@/features/news-crud/model/api/newsApi';
 import { NewsList } from '@/entities/news';
-import { NEWS_CONSTANTS } from '@/shared/constans';
+import { NEWS_CONSTANTS, PAGE_SIZE_OPTIONS } from '@/shared/constans';
 import { usePageFromSearchParams } from '@/shared/libs';
 import { Pagination } from '@/shared/ui/Pagination';
+import { Select } from '@/shared/ui/Select';
 
 import classes from './NewsPage.module.scss';
 
@@ -58,14 +59,14 @@ const NewsPage = () => {
 
         {/* TODO: создать ui */}
         <div className={classes.pageSizeSelector}>
-          <label htmlFor="pageSize">Показывать:</label>
-
-          <select id="pageSize" value={limit} onChange={handleLimitChange}>
-            <option value="10">10</option>
-            <option value="20">20</option>
-            <option value="50">50</option>
-            <option value={NEWS_CONSTANTS.TOTAL_ITEMS}>все</option>
-          </select>
+          <Select
+            label="Показывать:"
+            options={PAGE_SIZE_OPTIONS}
+            value={limit.toString()}
+            onChange={handleLimitChange}
+            size="small"
+            type="filled"
+          />
         </div>
       </div>
     </div>
