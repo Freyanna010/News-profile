@@ -49,15 +49,10 @@ const Pagination: FC<PaginationProps> = (props) => {
           <button
             key={`page-${pageNumber}`}
             onClick={() => onPageChange(pageNumber)}
-            style={{
-              padding: '4px 8px',
-              margin: '0 2px',
-              background: isActive ? '#7700ffff' : 'white',
-              color: isActive ? 'white' : 'black',
-              cursor: 'pointer',
-              borderRadius: '4px',
-              minWidth: '32px',
-            }}
+            className={clsx(classes.paginationButton, {
+              [classes.activeButton]: isActive,
+              [classes.inactiveButton]: !isActive,
+            })}
             disabled={isActive}
           >
             {pageNumber}
