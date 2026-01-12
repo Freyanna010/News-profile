@@ -1,8 +1,10 @@
 import type { FC } from 'react';
 import clsx from 'clsx';
+import { SlArrowLeft, SlArrowRight } from 'react-icons/sl';
 
 import { getPagesNumbers } from './getPagesNumbers';
 import classes from './Pagination.module.scss';
+import { Button } from '../Button';
 
 interface PaginationProps {
   currentPage: number;
@@ -21,16 +23,15 @@ const Pagination: FC<PaginationProps> = (props) => {
 
   return (
     <div className={clsx(classes.pagination, className)}>
-      {/* TODO: вынести в ui/IconButton */}
-      <button
+      <Button
         onClick={() => onPageChange(currentPage - 1)}
         disabled={currentPage <= 1}
-        style={{
-          cursor: currentPage <= 1 ? 'not-allowed' : 'pointer',
-        }}
-      >
-        Назад
-      </button>
+        size="small"
+        variant="outlined"
+        shape="circle"
+        icon={<SlArrowLeft />}
+        aria-label="Предыдущая страница"
+      />
 
       {pagesNumbers.map((item, index) => {
         if (item === '...') {
@@ -64,15 +65,15 @@ const Pagination: FC<PaginationProps> = (props) => {
         );
       })}
 
-      <button
-        onClick={() => onPageChange(currentPage + 1)}
-        disabled={currentPage >= totalPages}
-        style={{
-          cursor: currentPage >= totalPages ? 'not-allowed' : 'pointer',
-        }}
-      >
-        Вперед
-      </button>
+      <Button
+        onClick={() => onPageChange(currentPage - 1)}
+        disabled={currentPage <= 1}
+        size="small"
+        variant="outlined"
+        shape="circle"
+        icon={<SlArrowRight />}
+        aria-label="Предыдущая страница"
+      />
     </div>
   );
 };
