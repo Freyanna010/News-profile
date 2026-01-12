@@ -37,9 +37,9 @@ const NewsPage = () => {
 
     setSearchParams({ page: String(newPage) });
 
-    requestAnimationFrame(() => {
+    setTimeout(() => {
       window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
+    }, 100);
   };
   const handleLimitChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setLimit(Number(e.target.value));
