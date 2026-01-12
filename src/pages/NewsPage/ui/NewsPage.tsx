@@ -7,6 +7,7 @@ import { NEWS_CONSTANTS, PAGE_SIZE_OPTIONS } from '@/shared/constans';
 import { usePageFromSearchParams } from '@/shared/libs';
 import { Pagination } from '@/shared/ui/Pagination';
 import { Select } from '@/shared/ui/Select';
+import Card from '@/shared/ui/Card/Card';
 
 import classes from './NewsPage.module.scss';
 
@@ -46,29 +47,31 @@ const NewsPage = () => {
   };
 
   return (
-    <div className={classes.pageContainer}>
-      <NewsList news={news} isLoading={isLoading} error={error} />
+    <Card withHoverFocus={false}>
+      <div className={classes.pageContainer}>
+        <NewsList news={news} isLoading={isLoading} error={error} />
 
-      <div className={classes.paginationContainer}>
-        <Pagination
-          currentPage={currentPage}
-          totalPages={totalPages}
-          onPageChange={handlePageChange}
-          className={classes.pagination}
-        />
-
-        <div className={classes.pageSizeSelector}>
-          <Select
-            label="Показывать:"
-            options={PAGE_SIZE_OPTIONS}
-            value={limit.toString()}
-            onChange={handleLimitChange}
-            size="small"
-            type="filled"
+        <div className={classes.paginationContainer}>
+          <Pagination
+            currentPage={currentPage}
+            totalPages={totalPages}
+            onPageChange={handlePageChange}
+            className={classes.pagination}
           />
+
+          <div className={classes.pageSizeSelector}>
+            <Select
+              label="Показывать:"
+              options={PAGE_SIZE_OPTIONS}
+              value={limit.toString()}
+              onChange={handleLimitChange}
+              size="small"
+              type="filled"
+            />
+          </div>
         </div>
       </div>
-    </div>
+    </Card>
   );
 };
 
