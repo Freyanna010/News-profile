@@ -61,13 +61,13 @@ const Pagination: FC<PaginationProps> = (props) => {
       })}
 
       <Button
-        onClick={() => onPageChange(currentPage - 1)}
+        onClick={() => onPageChange(currentPage + 1)}
         disabled={currentPage <= 1}
         size="small"
         variant="outlined"
         shape="circle"
         icon={<SlArrowRight />}
-        aria-label="Предыдущая страница"
+        aria-label="Следующая страница"
       />
     </div>
   );
