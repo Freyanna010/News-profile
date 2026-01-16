@@ -1,6 +1,6 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
-import { API_BASE_URL, API_TEGS } from '@/shared/constans';
+import { API_BASE_URL, API_TAGS } from '@/shared/constans';
 
 export const baseApi = createApi({
   reducerPath: 'api',
@@ -11,6 +11,6 @@ export const baseApi = createApi({
       return headers;
     },
   }),
-  tagTypes: Object.values(API_TEGS),
+  tagTypes: Object.values(API_TAGS),
   endpoints: () => ({}),
 });
