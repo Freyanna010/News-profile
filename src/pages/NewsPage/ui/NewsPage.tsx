@@ -1,8 +1,7 @@
 import { useSearchParams } from 'react-router-dom';
 import { useState } from 'react';
 
-import { useGetNewsQuery } from '@/entities/news/api/newsApi';
-import { NewsList } from '@/entities/news';
+import { NewsList, useGetNewsQuery } from '@/entities/news';
 import { NEWS_CONSTANTS, PAGE_SIZE_OPTIONS } from '@/shared/constans';
 import { usePageFromSearchParams } from '@/shared/libs';
 import { Pagination } from '@/shared/ui/Pagination';
