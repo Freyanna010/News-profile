@@ -11,6 +11,7 @@ import Card from '@/shared/ui/Card/Card';
 import classes from './NewsPage.module.scss';
 
 const NewsPage = () => {
+  // TODO: типизировать <NewsSearchParams>  type NewsSearchParams = {page?: string;}; или export type NewsPageParams = {page?: string; limit?: string;category?: string; // если будут категории sort?: string; // если будет сортировка};
   const [_, setSearchParams] = useSearchParams();
   const [limit, setLimit] = useState<number>(NEWS_CONSTANTS.DEFAULT_LIMIT);
 
