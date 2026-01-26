@@ -1,5 +1,6 @@
 import type { FC } from 'react';
 import { MoonLoader } from 'react-spinners';
+import type React from 'react';
 
 import type { News } from '@/entities/news';
 
@@ -11,9 +12,12 @@ interface NewsListProps {
   isLoading?: boolean;
   error?: unknown;
   classNeme?: string;
+  renderAction?: (news: News) => React.ReactNode;
 }
 
-const NewsList: FC<NewsListProps> = ({ news, isLoading, error }) => {
+const NewsList: FC<NewsListProps> = (props) => {
+  const { news, isLoading, error, renderAction } = props;
+  //TODO: центролизовать
   if (isLoading) return <MoonLoader color="#5a17ff" size={90} />;
   if (error) return <div>Ошибка: {JSON.stringify(error)}</div>;
 
@@ -21,7 +25,11 @@ const NewsList: FC<NewsListProps> = ({ news, isLoading, error }) => {
     <ul className={classes.newsListContainer}>
       {news?.map((item) => (
         <li key={item.id}>
-          <NewsCard title={item.title} body={item.body} />
+          <NewsCard
+            title={item.title}
+            body={item.body}
+            actionButton={renderAction ? renderAction(item) : null}
+          />
         </li>
       ))}
     </ul>

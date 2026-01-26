@@ -1,12 +1,13 @@
 import { useSearchParams } from 'react-router-dom';
 import { useState } from 'react';
 
-import { NewsList, useGetNewsQuery } from '@/entities/news';
+import { NewsList, useGetNewsQuery, type News } from '@/entities/news';
 import { NEWS_CONSTANTS, PAGE_SIZE_OPTIONS } from '@/shared/constans';
 import { usePageFromSearchParams } from '@/shared/libs';
 import { Pagination } from '@/shared/ui/Pagination';
 import { Select } from '@/shared/ui/Select';
 import Card from '@/shared/ui/Card/Card';
+import { Button } from '@/shared/ui/Button';
 
 import classes from './NewsPage.module.scss';
 
@@ -46,10 +47,35 @@ const NewsPage = () => {
     setSearchParams({ page: String(NEWS_CONSTANTS.DEFAULT_PAGE) });
   };
 
+  const renderActionButton = (news: News) => {
+    const handleDelete = () => {
+      console.log('Удалить новость с id:', news.id);
+    };
+
+    const handleEdit = () => {
+      console.log('Редактировать новость с id:', news.id);
+    };
+    return (
+      <div>
+        <Button variant="outlined" size="small" onClick={handleDelete}>
+          удалить
+        </Button>
+        <Button variant="outlined" size="small" onClick={handleEdit}>
+          редактировать
+        </Button>
+      </div>
+    );
+  };
+
   return (
     <Card withHoverFocus={false}>
       <div className={classes.pageContainer}>
-        <NewsList news={news} isLoading={isLoading} error={error} />
+        <NewsList
+          news={news}
+          isLoading={isLoading}
+          error={error}
+          renderAction={renderActionButton}
+        />
 
         <div className={classes.paginationContainer}>
           <Pagination
