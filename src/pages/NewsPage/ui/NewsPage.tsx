@@ -3,7 +3,7 @@ import { useState } from 'react';
 
 import { NewsList, useGetNewsQuery, type News } from '@/entities/news';
 import { NEWS_CONSTANTS, PAGE_SIZE_OPTIONS } from '@/shared/constans';
-import { usePageFromSearchParams } from '@/shared/libs';
+import { usePageFromSearchParams, usePagination } from '@/shared/libs';
 import { Pagination } from '@/shared/ui/Pagination';
 import { Select } from '@/shared/ui/Select';
 import { DeleteNewsButton } from '@/entities/news/ui/DeleteNewsButton';
@@ -12,16 +12,12 @@ import { Card } from '@/shared/ui/Card';
 import classes from './NewsPage.module.scss';
 
 const NewsPage = () => {
-  // TODO: типизировать <NewsSearchParams>  type NewsSearchParams = {page?: string;}; или export type NewsPageParams = {page?: string; limit?: string;category?: string; // если будут категории sort?: string; // если будет сортировка};
-  const [_, setSearchParams] = useSearchParams();
-  const [limit, setLimit] = useState<number>(NEWS_CONSTANTS.DEFAULT_LIMIT);
-
-  const currentPage = usePageFromSearchParams(
-    'page',
-    NEWS_CONSTANTS.DEFAULT_PAGE
-  );
-
-  const totalPages = Math.ceil(NEWS_CONSTANTS.TOTAL_ITEMS / limit);
+  const { limit, currentPage, totalPages, changePage, changeLimit } =
+    usePagination({
+      totalItems: NEWS_CONSTANTS.TOTAL_ITEMS,
+      defaultLimit: NEWS_CONSTANTS.DEFAULT_LIMIT,
+      defaultPage: NEWS_CONSTANTS.DEFAULT_PAGE,
+    });
 
   const {
     data: news,
@@ -32,19 +28,15 @@ const NewsPage = () => {
     limit,
   });
 
-  const handlePageChange = (newPage: number) => {
-    const isPageValid = newPage >= 1 && newPage <= totalPages;
-    if (!isPageValid) return;
-
-    setSearchParams({ page: String(newPage) });
+  const handleChangePage = (newPage: number) => {
+    changePage(newPage);
 
     setTimeout(() => {
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }, 100);
   };
-  const handleLimitChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    setLimit(Number(e.target.value));
-    setSearchParams({ page: String(NEWS_CONSTANTS.DEFAULT_PAGE) });
+  const handleChangeLimit = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    changeLimit(Number(e.target.value));
   };
 
   const renderActionButton = (news: News) => {
@@ -70,7 +62,7 @@ const NewsPage = () => {
           <Pagination
             currentPage={currentPage}
             totalPages={totalPages}
-            onPageChange={handlePageChange}
+            onPageChange={handleChangePage}
             className={classes.pagination}
           />
 
@@ -79,7 +71,7 @@ const NewsPage = () => {
               label="Показывать:"
               options={PAGE_SIZE_OPTIONS}
               value={limit.toString()}
-              onChange={handleLimitChange}
+              onChange={handleChangeLimit}
               size="small"
               type="filled"
             />
