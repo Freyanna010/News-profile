@@ -1,7 +1,6 @@
 import { useRef, type FC } from 'react';
 import { SlClose } from 'react-icons/sl';
 import { createPortal } from 'react-dom';
-import clsx from 'clsx';
 
 import { useClickOutside } from '@/shared/libs/useClickOutside';
 import { useScrollLock } from '@/shared/libs';
@@ -10,19 +9,18 @@ import classes from './Modal.module.scss';
 import type { ModalProps } from './Modal.types';
 import { Button } from '../Button';
 
-const Modal: FC<ModalProps> = (props) => {
-  const {
-    onOk,
-    onCancel,
-    image,
-    okButtonText = 'Ok',
-    cancelButtonText = 'Cancel',
-    children,
-    isOpen,
-  } = props;
+i;
 
+const Modal: FC<ModalProps> = ({
+  isOpen,
+  onCancel,
+  onOk,
+  children,
+  image,
+  okButtonText = 'Ok',
+  cancelButtonText = 'Cancel',
+}) => {
   const modalRef = useRef<HTMLDivElement>(null);
-
   useClickOutside(modalRef, onCancel, isOpen);
   useScrollLock(isOpen);
 
@@ -31,32 +29,20 @@ const Modal: FC<ModalProps> = (props) => {
   return createPortal(
     <div className={classes.overlay}>
       <div className={classes.modalContainer} ref={modalRef}>
+        {/* Иконка закрытия */}
+        <button className={classes.closeButton} onClick={onCancel}>
+          <SlClose size={20} />
+        </button>
+
         {image && <img src={image} className={classes.modalImage} />}
-
-        <div className={classes.modalContent}>
+        <div className={classes.modalContent}>{children}</div>
+        <div className={classes.modalFooter}>
           <Button
-            className={classes.closeButton}
-            variant="text"
+            variant="outlined"
             onClick={onCancel}
-            icon={<SlClose />}
+            text={cancelButtonText}
           />
-
-          {children}
-
-          <div className={classes.rowButton}>
-            <Button
-              className={clsx(classes.buttons, classes.okButton)}
-              onClick={onOk}
-              variant="filled"
-              text={okButtonText}
-            />
-            <Button
-              className={clsx(classes.buttons, classes.cancelButton)}
-              onClick={onOk}
-              variant="outlined"
-              text={cancelButtonText}
-            />
-          </div>
+          <Button variant="filled" onClick={onOk} text={okButtonText} />
         </div>
       </div>
     </div>,
