@@ -9,8 +9,6 @@ import classes from './Modal.module.scss';
 import type { ModalProps } from './Modal.types';
 import { Button } from '../Button';
 
-i;
-
 const Modal: FC<ModalProps> = ({
   isOpen,
   onCancel,
