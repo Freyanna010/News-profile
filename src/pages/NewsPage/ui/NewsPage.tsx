@@ -1,17 +1,16 @@
-import { useSearchParams } from 'react-router-dom';
-import { useState } from 'react';
+import type { FC } from 'react';
 
 import { NewsList, useGetNewsQuery, type News } from '@/entities/news';
 import { NEWS_CONSTANTS, PAGE_SIZE_OPTIONS } from '@/shared/constans';
-import { usePageFromSearchParams, usePagination } from '@/shared/libs';
 import { Pagination } from '@/shared/ui/Pagination';
 import { Select } from '@/shared/ui/Select';
 import { DeleteNewsButton } from '@/entities/news/ui/DeleteNewsButton';
 import { Card } from '@/shared/ui/Card';
+import { usePagination } from '@/shared/libs';
 
 import classes from './NewsPage.module.scss';
 
-const NewsPage = () => {
+const NewsPage: FC = () => {
   const { limit, currentPage, totalPages, changePage, changeLimit } =
     usePagination({
       totalItems: NEWS_CONSTANTS.TOTAL_ITEMS,
@@ -52,7 +51,7 @@ const NewsPage = () => {
     <Card withHoverFocus={false}>
       <div className={classes.pageContainer}>
         <NewsList
-          news={news}
+          news={news ?? []}
           isLoading={isLoading}
           error={error}
           renderAction={renderActionButton}

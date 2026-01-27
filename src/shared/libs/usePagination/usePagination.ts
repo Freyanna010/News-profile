@@ -9,13 +9,21 @@ type UsePaginationOptions = {
   defaultPage: number;
   pageParam?: string;
 };
+
+type Pagination = {
+  limit: number;
+  currentPage: number;
+  totalPages: number;
+  changePage: (page: number) => void;
+  changeLimit: (limit: number) => void;
+};
 //TODO: changeLimit и changePage - должны быть в одном хуке?
 export const usePagination = ({
   totalItems,
   defaultLimit,
   defaultPage,
   pageParam = 'page',
-}: UsePaginationOptions) => {
+}: UsePaginationOptions): Pagination => {
   const [_, setSearchParams] = useSearchParams();
   const [limit, setLimit] = useState<number>(defaultLimit);
 
