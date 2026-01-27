@@ -7,7 +7,7 @@ import { usePageFromSearchParams } from '@/shared/libs';
 import { Pagination } from '@/shared/ui/Pagination';
 import { Select } from '@/shared/ui/Select';
 import Card from '@/shared/ui/Card/Card';
-import { Button } from '@/shared/ui/Button';
+import { DeleteNewsButton } from '@/entities/news/ui/DeleteNewsButton';
 
 import classes from './NewsPage.module.scss';
 
@@ -48,27 +48,22 @@ const NewsPage = () => {
   };
 
   const renderActionButton = (news: News) => {
-    const handleDelete = () => {
-      console.log('Удалить новость с id:', news.id);
-    };
-
-    const handleEdit = () => {
-      console.log('Редактировать новость с id:', news.id);
-    };
     return (
       <div>
-        <Button variant="outlined" size="small" onClick={handleDelete}>
-          удалить
-        </Button>
-        <Button variant="outlined" size="small" onClick={handleEdit}>
-          редактировать
-        </Button>
+        <DeleteNewsButton newsId={news.id} />
       </div>
     );
   };
 
   return (
     <Card withHoverFocus={false}>
+      {/* <button
+        onClick={() => {
+          window.console.log(' Кнопка нажата');
+        }}
+      >
+        test
+      </button> */}
       <div className={classes.pageContainer}>
         <NewsList
           news={news}
