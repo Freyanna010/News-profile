@@ -6,8 +6,8 @@ import { NEWS_CONSTANTS, PAGE_SIZE_OPTIONS } from '@/shared/constans';
 import { usePageFromSearchParams } from '@/shared/libs';
 import { Pagination } from '@/shared/ui/Pagination';
 import { Select } from '@/shared/ui/Select';
-import Card from '@/shared/ui/Card/Card';
 import { DeleteNewsButton } from '@/entities/news/ui/DeleteNewsButton';
+import { Card } from '@/shared/ui/Card';
 
 import classes from './NewsPage.module.scss';
 
@@ -51,19 +51,13 @@ const NewsPage = () => {
     return (
       <div>
         <DeleteNewsButton newsId={news.id} />
+        {/* еще кнопки */}
       </div>
     );
   };
 
   return (
     <Card withHoverFocus={false}>
-      {/* <button
-        onClick={() => {
-          window.console.log(' Кнопка нажата');
-        }}
-      >
-        test
-      </button> */}
       <div className={classes.pageContainer}>
         <NewsList
           news={news}

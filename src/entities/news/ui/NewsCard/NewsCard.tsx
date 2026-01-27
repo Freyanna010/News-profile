@@ -1,6 +1,6 @@
 import { type FC } from 'react';
 
-import Card from '@/shared/ui/Card/Card';
+import { Card } from '@/shared/ui/Card';
 
 import classes from './NewsCard.module.scss';
 
