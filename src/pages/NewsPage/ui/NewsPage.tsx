@@ -51,32 +51,30 @@ const NewsPage: FC = () => {
 
   return (
     <Card withHoverFocus={false}>
-      <div className={classes.pageContainer}>
-        <NewsList
-          news={news ?? []}
-          isLoading={isLoading}
-          error={error}
-          renderAction={renderActionButton}
+      <NewsList
+        news={news ?? []}
+        isLoading={isLoading}
+        error={error}
+        renderAction={renderActionButton}
+      />
+
+      <div className={classes.paginationContainer}>
+        <Pagination
+          currentPage={currentPage}
+          totalPages={totalPages}
+          onPageChange={handleChangePage}
+          className={classes.pagination}
         />
 
-        <div className={classes.paginationContainer}>
-          <Pagination
-            currentPage={currentPage}
-            totalPages={totalPages}
-            onPageChange={handleChangePage}
-            className={classes.pagination}
+        <div className={classes.pageSizeSelector}>
+          <Select
+            label="Показывать:"
+            options={PAGE_SIZE_OPTIONS}
+            value={limit.toString()}
+            onChange={handleChangeLimit}
+            size="small"
+            type="filled"
           />
-
-          <div className={classes.pageSizeSelector}>
-            <Select
-              label="Показывать:"
-              options={PAGE_SIZE_OPTIONS}
-              value={limit.toString()}
-              onChange={handleChangeLimit}
-              size="small"
-              type="filled"
-            />
-          </div>
         </div>
       </div>
     </Card>

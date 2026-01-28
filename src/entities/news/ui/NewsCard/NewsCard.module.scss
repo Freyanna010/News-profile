@@ -1,9 +1,5 @@
 @use '../../../../app/styles/variables.scss'as *;
 
-.newsCard {
-    padding: 1rem;
-}
-
 .title {
     color: $primary-color;
     size: 0.4rem;
@@ -11,7 +7,7 @@
 }
 
 .body {
-    border-bottom: $light-divider;
+    padding: 0, 2rem;
     size: 0.8rem;
 
     &::first-letter {
@@ -20,10 +16,9 @@
 }
 
 .actionButton {
-    align-items: center;
+    place-content: flex-end flex-end;
     border-bottom: $light-divider;
     display: flex;
     gap: 0.5rem;
-    justify-content: flex-end;
     padding: 0.2rem;
 }
