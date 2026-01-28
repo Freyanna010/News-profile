@@ -1,4 +1,5 @@
 import { useState, type FC } from 'react';
+import { AiOutlineDelete } from 'react-icons/ai';
 
 import { useDeleteNewsMutation } from '@/features/news-crud/delete-news';
 import { Button } from '@/shared/ui/Button';
@@ -14,7 +15,7 @@ const DeleteNewsButton: FC<DeleteNewsButtonProps> = ({ newsId }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const handleDelete = async () => {
-    if (window.confirm('Вы уверены, что хотите удалить эту новость?')) {
+    {
       try {
         await deleteNews(newsId).unwrap();
         alert(`Новость с ID ${newsId} удалена! Но сервер не обновляется`);
@@ -34,11 +35,11 @@ const DeleteNewsButton: FC<DeleteNewsButtonProps> = ({ newsId }) => {
   return (
     <>
       <Button
-        text={isLoading ? 'Удаление...' : 'удалить'}
-        variant="outlined"
+        variant="text"
         size="small"
         onClick={onDeleteClick}
         disabled={isLoading}
+        icon={<AiOutlineDelete size={20} />}
       />
 
       {isModalOpen && (

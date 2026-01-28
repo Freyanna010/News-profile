@@ -12,7 +12,6 @@ interface NewsCardProps {
 
 const NewsCard: FC<NewsCardProps> = ({ title, body, actionButton }) => {
   return (
-    //TODO: править стили
     <Card className={classes.newsCard} withHoverFocus={true}>
       {actionButton && (
         <div className={classes.actionButton}>{actionButton}</div>

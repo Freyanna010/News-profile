@@ -1,15 +1,17 @@
+@use '../../../../app/styles/variables.scss'as *;
+
 .newsCard {
     padding: 1rem;
 }
 
 .title {
-    /* TODO: переменная */
-    color: #4600e9;
-    size: 0.5rem;
+    color: $primary-color;
+    size: 0.4rem;
     text-transform: uppercase
 }
 
 .body {
+    border-bottom: $light-divider;
     size: 0.8rem;
 
     &::first-letter {
@@ -18,6 +20,10 @@
 }
 
 .actionButton {
+    align-items: center;
+    border-bottom: $light-divider;
     display: flex;
     gap: 0.5rem;
+    justify-content: flex-end;
+    padding: 0.2rem;
 }
