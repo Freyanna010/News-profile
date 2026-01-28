@@ -1,4 +1,5 @@
 import type { FC } from 'react';
+import { SlStar } from 'react-icons/sl';
 
 import { NewsList, useGetNewsQuery, type News } from '@/entities/news';
 import { NEWS_CONSTANTS, PAGE_SIZE_OPTIONS } from '@/shared/constans';
@@ -7,6 +8,7 @@ import { Select } from '@/shared/ui/Select';
 import { DeleteNewsButton } from '@/entities/news/ui/DeleteNewsButton';
 import { Card } from '@/shared/ui/Card';
 import { usePagination } from '@/shared/libs';
+import { Button } from '@/shared/ui/Button';
 
 import classes from './NewsPage.module.scss';
 
@@ -42,7 +44,7 @@ const NewsPage: FC = () => {
     return (
       <div>
         <DeleteNewsButton newsId={news.id} />
-        {/* еще кнопки */}
+        <Button icon={<SlStar />} variant="text" />
       </div>
     );
   };
