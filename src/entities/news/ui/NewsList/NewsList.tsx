@@ -17,8 +17,15 @@ interface NewsListProps {
 
 const NewsList: FC<NewsListProps> = (props) => {
   const { news, isLoading, error, renderAction } = props;
-  //TODO: центролизовать
-  if (isLoading) return <MoonLoader color="#5a17ff" size={90} />;
+
+  //TODO: не центрируется(  можно вынести в ui-компонет
+  if (isLoading) {
+    return (
+      <div className={classes.loaderWrapper}>
+        <MoonLoader color="#5a17ff" size={90} />
+      </div>
+    );
+  }
   if (error) return <div>Ошибка: {JSON.stringify(error)}</div>;
 
   return (
