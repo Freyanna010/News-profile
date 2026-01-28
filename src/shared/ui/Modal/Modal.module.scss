@@ -12,6 +12,8 @@
 
 .overlay {
   align-items: center;
+
+  // TODO: пременные
   background: rgb(0 0 0 / 70%);
   display: flex;
   inset: 0;
@@ -24,6 +26,8 @@
   animation: zoom-in 0.3s ease-out forwards;
   background: white;
   border-radius: 8px;
+
+  // TODO: пременные
   box-shadow: 0 4px 20px rgb(0 0 0 / 30%);
   display: flex;
   flex-direction: column;
@@ -50,6 +54,7 @@
 }
 
 .modalFooter {
+  // TODO: пременные
   border-top: 1px solid #eee;
   display: flex;
   gap: 1rem;

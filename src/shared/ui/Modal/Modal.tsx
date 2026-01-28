@@ -27,10 +27,12 @@ const Modal: FC<ModalProps> = ({
   return createPortal(
     <div className={classes.overlay}>
       <div className={classes.modalContainer} ref={modalRef}>
-        {/* Иконка закрытия */}
-        <button className={classes.closeButton} onClick={onCancel}>
-          <SlClose size={20} />
-        </button>
+        <Button
+          className={classes.closeButton}
+          onClick={onCancel}
+          icon={<SlClose size={20} />}
+          variant="text"
+        />
 
         {image && <img src={image} className={classes.modalImage} />}
         <div className={classes.modalContent}>{children}</div>

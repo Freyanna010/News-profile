@@ -1,3 +1,4 @@
+//TODO: эту функцию оставить рядом с компонентом или вынести в shared? я оставила тут т.к она нужна только в этом компоненте
 export const getPagesNumbers = (
   currentPage: number,
   totalPages: number
