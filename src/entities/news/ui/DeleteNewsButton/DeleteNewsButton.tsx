@@ -38,7 +38,9 @@ const DeleteNewsButton: FC<DeleteNewsButtonProps> = ({ newsId }) => {
 
   return (
     <>
+      {/* нужен тултип */}
       <Button
+        title="delete"
         variant="text"
         size="small"
         onClick={onDeleteClick}
