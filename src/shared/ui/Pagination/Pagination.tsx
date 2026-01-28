@@ -62,7 +62,7 @@ const Pagination: FC<PaginationProps> = (props) => {
 
       <Button
         onClick={() => onPageChange(currentPage + 1)}
-        disabled={currentPage <= 1}
+        disabled={currentPage >= totalPages}
         size="small"
         variant="outlined"
         shape="circle"
