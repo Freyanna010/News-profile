@@ -148,11 +148,11 @@
     color: $primary-color;
 
     &:hover:not(:disabled, .disabled, .loading) {
-        background-color: rgba($primary-color, 0.1);
+        color: color.adjust($primary-color, $lightness: -15%);
     }
 
     &:active:not(:disabled, .disabled, .loading) {
-        background-color: rgba($primary-color, 0.2);
+        color: color.adjust($primary-color, $lightness: -20%);
     }
 }
 

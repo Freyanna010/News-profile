@@ -37,8 +37,8 @@ const Modal: FC<ModalProps> = ({
         {image && <img src={image} className={classes.modalImage} />}
         <div className={classes.modalContent}>{children}</div>
         <div className={classes.modalFooter}>
-          <Button variant="solid" onClick={onCancel} text={cancelButtonText} />
-          <Button variant="filled" onClick={onOk} text={okButtonText} />
+          <Button variant="solid" onClick={onOk} text={okButtonText} />
+          <Button variant="filled" onClick={onCancel} text={cancelButtonText} />
         </div>
       </div>
     </div>,
