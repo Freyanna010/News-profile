@@ -64,7 +64,7 @@ const Button: FC<ButtonProps> = (props) => {
       );
     }
 
-    return <span className={classes.text}>{content}</span>;
+    return <span className={classes.textContent}>{content}</span>;
   };
 
   return (

@@ -5,6 +5,7 @@
     align-items: center;
     border: 1px solid transparent;
     border-radius: 0.5rem;
+    color: inherit;
     cursor: pointer;
     display: inline-flex;
     font-family: inherit;
@@ -16,7 +17,11 @@
     position: relative;
     text-align: center;
     text-decoration: none;
-    transition: all 0.2s ease-in-out;
+    transition:
+        background-color 0.2s ease,
+        color 0.2s ease,
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
     user-select: none;
     vertical-align: middle;
 
@@ -54,56 +59,42 @@
 
 .small {
     font-size: 0.75rem;
-    min-height: 2rem;
-    min-width: 2rem;
-    padding: 0.1rem 0.2rem;
+    min-height: 1.75rem;
+    min-width: 1.75rem;
+    padding: 0.25rem 0.5rem;
 
     &.circle,
-    &.square {
-        padding: 0.5rem;
-    }
-
+    &.square,
     &.onlyIcon {
-        padding: 0.5rem;
+        padding: 0.375rem;
     }
 }
 
 .middle {
-    font-size: 1rem;
-    min-height: 2.5rem;
-    min-width: 2.5rem;
-    padding: 0.75rem 1.5rem;
+    font-size: 0.875rem;
+    min-height: 2.25rem; // 36px
+    min-width: 2.25rem;
+    padding: 0.5rem 1rem;
 
     &.circle,
-    &.square {
-        padding: 0.75rem;
-    }
-
+    &.square,
     &.onlyIcon {
-        padding: 0.75rem;
+        padding: 0.5rem;
     }
 }
 
 .large {
-    font-size: 1.125rem;
-    min-height: 3rem;
-    min-width: 3rem;
-    padding: 1rem 2rem;
+    font-size: 1rem;
+    min-height: 2.75rem; // 44px
+    min-width: 2.75rem;
+    padding: 0.75rem 1.25rem;
 
     &.circle,
-    &.square {
-        padding: 1rem;
-    }
-
+    &.square,
     &.onlyIcon {
-        padding: 1rem;
-    }
-
-    &.textContent {
-        padding: 0.5rem 0.75rem;
+        padding: 0.75rem;
     }
 }
-
 
 .solid {
     background-color: $primary-color;
@@ -136,18 +127,18 @@
 }
 
 .filled {
-    background-color: $medium-gray-color;
+    background-color: $light-gray-color;
     border-color: $medium-gray-color;
     color: $dark-gray-color;
 
     &:hover:not(:disabled, .disabled, .loading) {
-        background-color: color.adjust($medium-gray-color, $lightness: -10%);
-        border-color: color.adjust($medium-gray-color, $lightness: -10%);
+        background-color: color.adjust($medium-gray-color, $lightness: -3%);
+        border-color: color.adjust($medium-gray-color, $lightness: -3%);
     }
 
     &:active:not(:disabled, .disabled, .loading) {
-        background-color: color.adjust($medium-gray-color, $lightness: -15%);
-        border-color: color.adjust($medium-gray-color, $lightness: -15%);
+        background-color: color.adjust($medium-gray-color, $lightness: -10%);
+        border-color: color.adjust($medium-gray-color, $lightness: -10%);
     }
 }
 
@@ -155,7 +146,6 @@
     background-color: transparent;
     border-color: transparent;
     color: $primary-color;
-    padding: 0.5rem 0.75rem; // Меньше padding по умолчанию
 
     &:hover:not(:disabled, .disabled, .loading) {
         background-color: rgba($primary-color, 0.1);
@@ -180,15 +170,20 @@
     white-space: nowrap;
 }
 
+.textContent,
+.icon {
+    pointer-events: none;
+}
+
 .withIcon {
-    gap: 0.5rem;
+    gap: 0.375rem;
 
     &.small {
-        gap: 0.375rem;
+        gap: 0.25rem;
     }
 
     &.large {
-        gap: 0.625rem;
+        gap: 0.5rem;
     }
 }
 
@@ -202,29 +197,30 @@
 
 .loader {
     animation: spin 0.8s linear infinite;
-    border: 2px solid rgb(255 255 255 / 30%);
+    border: 2px solid $medium-gray-color;
     border-radius: 50%;
     border-top-color: currentcolor;
-    height: 1rem;
+    height: 0.875rem;
     left: 50%;
-    margin-left: -0.5rem;
-    margin-top: -0.5rem;
+    margin-left: -0.4375rem;
+    margin-top: -0.4375rem;
     position: absolute;
     top: 50%;
-    width: 1rem;
+    width: 0.875rem;
+
 
     .small & {
-        height: 0.875rem;
-        margin-left: -0.4375rem;
-        margin-top: -0.4375rem;
-        width: 0.875rem;
+        height: 0.75rem;
+        margin-left: -0.375rem;
+        margin-top: -0.375rem;
+        width: 0.75rem;
     }
 
     .large & {
-        height: 1.125rem;
-        margin-left: -0.5625rem;
-        margin-top: -0.5625rem;
-        width: 1.125rem;
+        height: 1rem;
+        margin-left: -0.5rem;
+        margin-top: -0.5rem;
+        width: 1rem;
     }
 
     .outlined &,
