@@ -5,7 +5,7 @@ import { NewsList, useGetNewsQuery, type News } from '@/entities/news';
 import { NEWS_CONSTANTS, PAGE_SIZE_OPTIONS } from '@/shared/constans';
 import { Pagination } from '@/shared/ui/Pagination';
 import { Select } from '@/shared/ui/Select';
-import { DeleteNewsButton } from '@/entities/news/ui/DeleteNewsButton';
+import { DeleteNewsButton } from '@/features/news-crud/delete-news/ui/DeleteNewsButton';
 import { Card } from '@/shared/ui/Card';
 import { usePagination } from '@/shared/libs';
 import { Button } from '@/shared/ui/Button';
