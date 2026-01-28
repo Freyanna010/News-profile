@@ -5,7 +5,6 @@ export interface ModalProps {
   isOpen: boolean;
   onOk: () => void;
   onCancel: () => void;
-  image?: string;
   okButtonText?: string;
   cancelButtonText?: string;
 }

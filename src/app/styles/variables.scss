@@ -4,7 +4,7 @@ $primary-color: #6a0bff;
 $error-color: #dc3545;
 $dark-gray-color: #2a2e33;
 $medium-gray-color: #8a8a8a;
-$light-gray-color: #ccc;
+$light-gray-color: #dbdbdb;
 $dark-red-color: rgb(85 0 8);
 
 
@@ -12,3 +12,9 @@ $dark-red-color: rgb(85 0 8);
 $box-shadow: 0 2px 4px rgb(197 197 197 / 50%);
 $hover-box-shadow: 0 4px 8px rgb(197 197 197 / 60%);
 $focus-box-shadow: 0 0 0 0.1875rem rgb(119 0 255 / 30%);
+
+/* оверлей */
+$overlay-bg-color: rgb(0 0 0 / 70%);
+
+/* границы */
+$light-divider: 1px solid #eee;

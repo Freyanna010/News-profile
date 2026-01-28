@@ -98,17 +98,14 @@
 
 .solid {
     background-color: $primary-color;
-    border-color: $primary-color;
     color: white;
 
     &:hover:not(:disabled, .disabled, .loading) {
-        background-color: color.adjust($primary-color, $lightness: -10%);
-        border-color: color.adjust($primary-color, $lightness: -10%);
+        background-color: color.adjust($primary-color, $lightness: -11%);
     }
 
     &:active:not(:disabled, .disabled, .loading) {
-        background-color: color.adjust($primary-color, $lightness: -15%);
-        border-color: color.adjust($primary-color, $lightness: -15%);
+        background-color: color.adjust($primary-color, $lightness: -12%);
     }
 }
 
@@ -129,16 +126,16 @@
 .filled {
     background-color: $light-gray-color;
     border-color: $medium-gray-color;
-    color: $dark-gray-color;
+    color: $medium-gray-color;
 
     &:hover:not(:disabled, .disabled, .loading) {
-        background-color: color.adjust($medium-gray-color, $lightness: -3%);
-        border-color: color.adjust($medium-gray-color, $lightness: -3%);
+        background-color: color.adjust($light-gray-color, $lightness: -4%);
+        border-color: color.adjust($medium-gray-color, $lightness: -4%);
     }
 
     &:active:not(:disabled, .disabled, .loading) {
-        background-color: color.adjust($medium-gray-color, $lightness: -10%);
-        border-color: color.adjust($medium-gray-color, $lightness: -10%);
+        background-color: color.adjust($medium-gray-color, $lightness: -5%);
+        border-color: color.adjust($medium-gray-color, $lightness: -5%);
     }
 }
 

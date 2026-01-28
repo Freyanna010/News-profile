@@ -1,3 +1,5 @@
+@use '../../../app/styles/variables.scss'as *;
+
 @keyframes zoom-in {
   from {
     opacity: 0;
@@ -12,9 +14,7 @@
 
 .overlay {
   align-items: center;
-
-  // TODO: пременные
-  background: rgb(0 0 0 / 70%);
+  background: $overlay-bg-color;
   display: flex;
   inset: 0;
   justify-content: center;
@@ -26,9 +26,7 @@
   animation: zoom-in 0.3s ease-out forwards;
   background: white;
   border-radius: 8px;
-
-  // TODO: пременные
-  box-shadow: 0 4px 20px rgb(0 0 0 / 30%);
+  box-shadow: $box-shadow;
   display: flex;
   flex-direction: column;
   max-height: 80vh;
@@ -46,27 +44,15 @@
   padding: 1.5rem;
 }
 
-.modalImage {
-  border-radius: 4px;
-  height: auto;
-  object-fit: cover;
-  width: 100%;
+.modalHeader {
+  display: flex;
+  justify-content: flex-end;
 }
 
 .modalFooter {
-  // TODO: пременные
-  border-top: 1px solid #eee;
+  border-top: $light-divider;
   display: flex;
   gap: 1rem;
   justify-content: flex-end;
   padding: 1rem 1.5rem;
-}
-
-.closeButton {
-  background: transparent;
-  border: none;
-  cursor: pointer;
-  position: absolute;
-  right: 0.5rem;
-  top: 0.5rem;
 }

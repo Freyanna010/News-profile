@@ -14,7 +14,6 @@ const Modal: FC<ModalProps> = ({
   onCancel,
   onOk,
   children,
-  image,
   okButtonText = 'Ok',
   cancelButtonText = 'Cancel',
 }) => {
@@ -27,14 +26,14 @@ const Modal: FC<ModalProps> = ({
   return createPortal(
     <div className={classes.overlay}>
       <div className={classes.modalContainer} ref={modalRef}>
-        <Button
-          className={classes.closeButton}
-          onClick={onCancel}
-          icon={<SlClose size={20} />}
-          variant="text"
-        />
+        <div className={classes.modalHeader}>
+          <Button
+            onClick={onCancel}
+            icon={<SlClose size={20} />}
+            variant="text"
+          />
+        </div>
 
-        {image && <img src={image} className={classes.modalImage} />}
         <div className={classes.modalContent}>{children}</div>
         <div className={classes.modalFooter}>
           <Button variant="solid" onClick={onOk} text={okButtonText} />
