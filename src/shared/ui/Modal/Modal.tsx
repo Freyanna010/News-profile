@@ -16,8 +16,10 @@ const Modal: FC<ModalProps> = ({
   children,
   okButtonText = 'Ok',
   cancelButtonText = 'Cancel',
+  isButonCancel = true,
 }) => {
   const modalRef = useRef<HTMLDivElement>(null);
+
   useClickOutside(modalRef, onCancel, isOpen);
   useScrollLock(isOpen);
 
@@ -37,7 +39,13 @@ const Modal: FC<ModalProps> = ({
         <div className={classes.modalContent}>{children}</div>
         <div className={classes.modalFooter}>
           <Button variant="solid" onClick={onOk} text={okButtonText} />
-          <Button variant="filled" onClick={onCancel} text={cancelButtonText} />
+          {isButonCancel && (
+            <Button
+              variant="filled"
+              onClick={onCancel}
+              text={cancelButtonText}
+            />
+          )}
         </div>
       </div>
     </div>,

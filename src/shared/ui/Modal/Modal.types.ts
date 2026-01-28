@@ -7,4 +7,5 @@ export interface ModalProps {
   onCancel: () => void;
   okButtonText?: string;
   cancelButtonText?: string;
+  isButonCancel?: boolean;
 }

@@ -12,24 +12,28 @@ interface DeleteNewsButtonProps {
 
 const DeleteNewsButton: FC<DeleteNewsButtonProps> = ({ newsId }) => {
   const [deleteNews, { isLoading }] = useDeleteNewsMutation();
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isModalСonfirmOpen, setIsModalСonfirmOpen] = useState(false);
+  const [isModalSuccessOpen, setIsModalSuccessOpen] = useState(false);
 
   const handleDelete = async () => {
-    {
-      try {
-        await deleteNews(newsId).unwrap();
-        alert(`Новость с ID ${newsId} удалена! Но сервер не обновляется`);
-      } catch (error) {
-        console.error(error);
-      }
+    try {
+      await deleteNews(newsId).unwrap();
+      setIsModalSuccessOpen(true);
+    } catch (error) {
+      console.error(error);
     }
   };
 
-  const onDeleteClick = () => setIsModalOpen(true);
-  const onCancleModalClick = () => setIsModalOpen(false);
-  const onOkModalClick = () => {
+  const onDeleteClick = () => setIsModalСonfirmOpen(true);
+
+  const onCancleModalConfirmClick = () => setIsModalСonfirmOpen(false);
+  const onOkModalConfirmClick = () => {
     handleDelete();
-    setIsModalOpen(false);
+    setIsModalСonfirmOpen(false);
+  };
+
+  const onModalSuccessClick = () => {
+    setIsModalSuccessOpen(false);
   };
 
   return (
@@ -42,15 +46,27 @@ const DeleteNewsButton: FC<DeleteNewsButtonProps> = ({ newsId }) => {
         icon={<AiOutlineDelete size={20} />}
       />
 
-      {isModalOpen && (
+      {isModalСonfirmOpen && (
         <Modal
-          isOpen={isModalOpen}
-          onCancel={onCancleModalClick}
-          onOk={onOkModalClick}
+          isOpen={isModalСonfirmOpen}
+          onCancel={onCancleModalConfirmClick}
+          onOk={onOkModalConfirmClick}
           okButtonText="Удалить"
           cancelButtonText="Не надо"
         >
           <p>Удалить эту новость?(</p>
+        </Modal>
+      )}
+
+      {isModalSuccessOpen && (
+        <Modal
+          isOpen={isModalSuccessOpen}
+          onOk={onModalSuccessClick}
+          onCancel={onModalSuccessClick}
+          isButonCancel={false}
+          okButtonText="Ладно"
+        >
+          <p>Новость {newsId} была удалена, но сервер не обновляет данные💁🏻‍♀️</p>
         </Modal>
       )}
     </>
