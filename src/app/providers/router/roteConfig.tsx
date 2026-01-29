@@ -1,5 +1,4 @@
 import { Suspense } from 'react';
-import { MoonLoader } from 'react-spinners';
 import { createBrowserRouter } from 'react-router-dom';
 
 import { AuthLayout } from '@/app/layouts/AuthLayout';
@@ -10,6 +9,7 @@ import { NewsPage } from '@/pages/NewsPage';
 import { NotFoundPage } from '@/pages/NotFoundPage';
 import { ProfilePage } from '@/pages/ProfilePage';
 import { RoutePath } from '@/shared/constans';
+import { LoaderPage } from '@/shared/ui/LoaderPage';
 
 import ProtectedRoute from './ProtectedRout';
 
@@ -17,7 +17,7 @@ export const router = createBrowserRouter(
   [
     {
       element: (
-        <Suspense fallback={<MoonLoader color="#5a17ff" size={90} />}>
+        <Suspense fallback={<LoaderPage />}>
           <MainLayout />
         </Suspense>
       ),
@@ -43,7 +43,7 @@ export const router = createBrowserRouter(
 
     {
       element: (
-        <Suspense fallback={<MoonLoader color="#5a17ff" size={90} />}>
+        <Suspense fallback={<LoaderPage />}>
           <AuthLayout />
         </Suspense>
       ),
@@ -58,7 +58,7 @@ export const router = createBrowserRouter(
     {
       path: RoutePath.not_found,
       element: (
-        <Suspense fallback={<MoonLoader color="#ff1717ff" size={90} />}>
+        <Suspense fallback={<LoaderPage />}>
           <NotFoundPage />
         </Suspense>
       ),

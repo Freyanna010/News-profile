@@ -1,0 +1,19 @@
+.skeletonCard {
+    background-color: var(--light-bg-color);
+    border-radius: 0.5rem;
+    box-shadow: var(--box-shadow);
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    min-height: 180px;
+    overflow: hidden;
+    padding: 1rem;
+    position: relative;
+    width: 100%;
+}
+
+
+.contentLoader {
+    height: 100%;
+    width: 100%;
+}
