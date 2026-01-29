@@ -56,6 +56,7 @@ const NewsPage: FC = () => {
         isLoading={isLoading}
         error={error}
         renderAction={renderActionButton}
+        skeletonCount={limit}
       />
 
       <div className={classes.paginationContainer}>
