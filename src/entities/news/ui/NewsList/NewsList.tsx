@@ -1,11 +1,9 @@
 import type { FC } from 'react';
 import type React from 'react';
 
-import type { News } from '@/entities/news';
+import { NewsCard, NewsListSkeleton, type News } from '@/entities/news';
 
-import NewsCard from '../NewsCard/NewsCard';
 import classes from './NewsList.module.scss';
-import { NewsListSkeleton } from '../NewsListSkeleton.ts';
 
 interface NewsListProps {
   news: News[] | undefined;
