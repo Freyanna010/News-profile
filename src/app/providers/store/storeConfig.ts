@@ -3,12 +3,20 @@ import { setupListeners } from '@reduxjs/toolkit/query';
 
 import { baseApi } from '@/shared/config/query';
 
+import { router } from '../router';
+
 export const store = configureStore({
   reducer: {
     [baseApi.reducerPath]: baseApi.reducer,
   },
   middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware().concat(baseApi.middleware),
+    getDefaultMiddleware({
+      thunk: {
+        extraArgument: {
+          navigate: router.navigate,
+        },
+      },
+    }),
 });
 
 setupListeners(store.dispatch);

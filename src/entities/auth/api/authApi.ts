@@ -1,3 +1,5 @@
+import type { NavigateFunction } from 'react-router-dom';
+
 import { baseApi } from '@/shared/config/query';
 import { API_TAGS, TOKEN_KEY } from '@/shared/constans';
 
@@ -37,10 +39,12 @@ export const authApi = baseApi.injectEndpoints({
         }
       },
 
-      async onQueryStarted(_credentials, { queryFulfilled }) {
+      async onQueryStarted(_credentials, { queryFulfilled, extra }) {
         try {
           const { data } = await queryFulfilled;
           localStorage.setItem(TOKEN_KEY, data.token);
+          const { navigate } = extra as { navigate: NavigateFunction };
+          navigate('/main');
         } catch (error) {
           console.error(error);
         }
