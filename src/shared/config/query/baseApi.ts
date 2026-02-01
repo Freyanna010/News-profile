@@ -7,7 +7,7 @@ export const baseApi = createApi({
   baseQuery: fetchBaseQuery({
     baseUrl: API_BASE_URL,
     prepareHeaders: (headers) => {
-      //TODO: настроить aвторизацию
+      //TODO: тут должна быть настройка заголовка с токеном для всех запросов
       return headers;
     },
   }),
