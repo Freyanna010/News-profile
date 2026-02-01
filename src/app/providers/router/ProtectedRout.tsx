@@ -2,13 +2,13 @@ import { Navigate, useLocation } from 'react-router-dom';
 import type { ReactNode } from 'react';
 
 import { RoutePath } from '@/shared/constans/routes';
-import { useMockAuth } from '@/shared/libs';
+import { useAuth } from '@/shared/libs';
 
 interface ProtectedRouteProps {
   children: ReactNode;
 }
 const ProtectedRoute = ({ children }: ProtectedRouteProps) => {
-  const { isAuthenticated } = useMockAuth();
+  const { isAuthenticated } = useAuth();
 
   const location = useLocation();
 
