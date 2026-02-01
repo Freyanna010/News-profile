@@ -16,7 +16,7 @@ export const store = configureStore({
           navigate: router.navigate,
         },
       },
-    }),
+    }).concat(baseApi.middleware),
 });
 
 setupListeners(store.dispatch);
