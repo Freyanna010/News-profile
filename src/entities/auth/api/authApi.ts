@@ -1,4 +1,5 @@
 import type { NavigateFunction } from 'react-router-dom';
+import { toast } from 'react-hot-toast';
 
 import { baseApi } from '@/shared/config/query';
 import { API_TAGS, TOKEN_KEY } from '@/shared/constans';
@@ -32,7 +33,7 @@ export const authApi = baseApi.injectEndpoints({
             error: {
               status: 401,
               data: {
-                message: 'Неверныое имя или пароль',
+                message: 'Неверныое имя или пароль🙅🏻‍♀️',
               },
             },
           };
@@ -43,10 +44,19 @@ export const authApi = baseApi.injectEndpoints({
         try {
           const { data } = await queryFulfilled;
           localStorage.setItem(TOKEN_KEY, data.token);
+          toast.success('Вход выполнен успешно🖐🏻');
           const { navigate } = extra as { navigate: NavigateFunction };
           navigate('/main');
         } catch (error) {
-          console.error(error);
+          if (error && typeof error === 'object' && 'data' in error) {
+            const err = error as { data: { message: string } };
+            const errorMessage = err.data.message;
+            toast.error(errorMessage);
+            console.error(errorMessage);
+          } else {
+            toast.error('Ошибка входа🤷🏻‍♀️');
+            console.error('Ошибка входа🤷🏻‍♀️');
+          }
         }
       },
 
@@ -64,7 +74,9 @@ export const authApi = baseApi.injectEndpoints({
       async onQueryStarted(_args, { queryFulfilled }) {
         try {
           await queryFulfilled;
+          toast.success('Вы успешно вышли. Пока.');
         } catch (error) {
+          toast.error('Не получилось выйти🤷🏻‍♀️');
           console.error(error);
         } finally {
           localStorage.removeItem(TOKEN_KEY);
