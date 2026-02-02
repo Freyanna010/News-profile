@@ -2,7 +2,7 @@ import type { NavigateFunction } from 'react-router-dom';
 import { toast } from 'react-hot-toast';
 
 import { baseApi } from '@/shared/config/query';
-import { API_TAGS, TOKEN_KEY } from '@/shared/constans';
+import { API_TAGS, ROUTE_PATH, TOKEN_KEY } from '@/shared/constans';
 
 import type {
   LoginRequest,
@@ -46,7 +46,7 @@ export const authApi = baseApi.injectEndpoints({
           localStorage.setItem(TOKEN_KEY, data.token);
           toast.success('Вход выполнен успешно🖐🏻');
           const { navigate } = extra as { navigate: NavigateFunction };
-          navigate('/main');
+          navigate(ROUTE_PATH.main);
         } catch (error) {
           if (error && typeof error === 'object' && 'data' in error) {
             const err = error as { data: { message: string } };

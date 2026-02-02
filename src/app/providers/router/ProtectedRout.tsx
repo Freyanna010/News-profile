@@ -1,7 +1,7 @@
 import { Navigate, useLocation } from 'react-router-dom';
 import type { ReactNode } from 'react';
 
-import { RoutePath } from '@/shared/constans/routes';
+import { ROUTE_PATH } from '@/shared/constans/routes';
 import { useAuth } from '@/shared/libs';
 
 interface ProtectedRouteProps {
@@ -13,7 +13,9 @@ const ProtectedRoute = ({ children }: ProtectedRouteProps) => {
   const location = useLocation();
 
   if (!isAuthenticated) {
-    return <Navigate to={RoutePath.login} replace state={{ from: location }} />;
+    return (
+      <Navigate to={ROUTE_PATH.login} replace state={{ from: location }} />
+    );
   }
 
   return <>{children}</>;

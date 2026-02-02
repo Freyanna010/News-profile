@@ -8,7 +8,7 @@ import { LoginPage } from '@/pages/LoginPage';
 import { NewsPage } from '@/pages/NewsPage';
 import { NotFoundPage } from '@/pages/NotFoundPage';
 import { ProfilePage } from '@/pages/ProfilePage';
-import { RoutePath } from '@/shared/constans';
+import { ROUTE_PATH } from '@/shared/constans';
 import { LoaderPage } from '@/shared/ui/LoaderPage';
 
 import ProtectedRoute from './ProtectedRout';
@@ -23,15 +23,15 @@ export const router = createBrowserRouter(
       ),
       children: [
         {
-          path: RoutePath.main,
+          path: ROUTE_PATH.main,
           element: <HomePage />,
         },
         {
-          path: RoutePath.news,
+          path: ROUTE_PATH.news,
           element: <NewsPage />,
         },
         {
-          path: RoutePath.profile,
+          path: ROUTE_PATH.profile,
           element: (
             <ProtectedRoute>
               <ProfilePage />
@@ -49,14 +49,14 @@ export const router = createBrowserRouter(
       ),
       children: [
         {
-          path: RoutePath.login,
+          path: ROUTE_PATH.login,
           element: <LoginPage />,
         },
       ],
     },
 
     {
-      path: RoutePath.not_found,
+      path: ROUTE_PATH.not_found,
       element: (
         <Suspense fallback={<LoaderPage />}>
           <NotFoundPage />

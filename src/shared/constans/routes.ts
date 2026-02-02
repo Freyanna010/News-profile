@@ -9,7 +9,7 @@ export const AppRoutes = {
 
 export type AppRoutes = (typeof AppRoutes)[keyof typeof AppRoutes];
 
-export const RoutePath: Record<AppRoutes, string> = {
+export const ROUTE_PATH: Record<AppRoutes, string> = {
   [AppRoutes.MAIN]: '/',
   [AppRoutes.NEWS]: '/news',
   [AppRoutes.PROFILE]: '/profile/:id?',
