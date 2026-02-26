@@ -3,6 +3,8 @@ import logo from '@shared/assets/logo.avif';
 import { NavBar } from '@/shared/ui/NavBar';
 import { AppLink } from '@/shared/ui/AppLink';
 import { NAV_HEADER_ITEMS } from '@/shared/constans';
+import { LoginLink } from '@/features/auth';
+import { LogoutButton } from '@/features/auth/logaut';
 
 import classes from './Header.module.scss';
 
@@ -30,6 +32,9 @@ const Header = () => {
               <p>{item.label}</p>
             </AppLink>
           ))}
+
+          <LoginLink />
+          <LogoutButton />
         </NavBar>
       </div>
     </header>

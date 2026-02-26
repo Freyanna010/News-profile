@@ -2,14 +2,15 @@ import type { NavigateFunction } from 'react-router-dom';
 import { toast } from 'react-hot-toast';
 
 import { baseApi } from '@/shared/config/query';
-import { API_TAGS, ROUTE_PATH, TOKEN_KEY } from '@/shared/constans';
+import { API_TAGS, ROUTE_PATH } from '@/shared/constans';
 
 import type {
   LoginRequest,
   AuthResponse,
   LogoutResponse,
 } from '../model/types';
-import { MOCK_USERS } from '../model/moks';
+import { MOCK_USERS } from '../../../shared/constans/moks';
+import { clearToken, setToken } from '../model/authSlice';
 
 export const authApi = baseApi.injectEndpoints({
   endpoints: (build) => ({
@@ -40,10 +41,10 @@ export const authApi = baseApi.injectEndpoints({
         }
       },
 
-      async onQueryStarted(_credentials, { queryFulfilled, extra }) {
+      async onQueryStarted(_credentials, { queryFulfilled, dispatch, extra }) {
         try {
           const { data } = await queryFulfilled;
-          localStorage.setItem(TOKEN_KEY, data.token);
+          dispatch(setToken(data.token));
           toast.success('Вход выполнен успешно🖐🏻');
           const { navigate } = extra as { navigate: NavigateFunction };
           navigate(ROUTE_PATH.main);
@@ -62,24 +63,20 @@ export const authApi = baseApi.injectEndpoints({
 
       invalidatesTags: [API_TAGS.AUTH],
     }),
-
     logout: build.mutation<LogoutResponse, void>({
       queryFn: async () => {
         await new Promise((resolve) => setTimeout(resolve, 1000));
-        return {
-          data: { success: true },
-        };
+        return { data: { success: true } };
       },
 
-      async onQueryStarted(_args, { queryFulfilled }) {
+      async onQueryStarted(_args, { queryFulfilled, dispatch }) {
         try {
           await queryFulfilled;
+          dispatch(clearToken());
           toast.success('Вы успешно вышли. Пока.');
         } catch (error) {
           toast.error('Не получилось выйти🤷🏻‍♀️');
           console.error(error);
-        } finally {
-          localStorage.removeItem(TOKEN_KEY);
         }
       },
 
