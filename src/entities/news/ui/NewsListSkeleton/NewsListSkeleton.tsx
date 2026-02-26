@@ -8,7 +8,6 @@ interface NewsListSkeletonProps {
 
 const NewsListSkeleton: React.FC<NewsListSkeletonProps> = ({ count = 10 }) => {
   const skeletonItems = Array.from({ length: count }, (_, index) => ({
-    //TODO: здесь можно оставит инлекс?
     id: `skeleton-${index}`,
   }));
 

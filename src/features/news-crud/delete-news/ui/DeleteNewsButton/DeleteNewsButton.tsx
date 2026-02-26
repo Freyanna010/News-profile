@@ -16,12 +16,8 @@ const DeleteNewsButton: FC<DeleteNewsButtonProps> = ({ newsId }) => {
   const [isModalSuccessOpen, setIsModalSuccessOpen] = useState(false);
 
   const handleDelete = async () => {
-    try {
-      await deleteNews(newsId).unwrap();
-      setIsModalSuccessOpen(true);
-    } catch (error) {
-      console.error(error);
-    }
+    await deleteNews(newsId).unwrap();
+    setIsModalSuccessOpen(true);
   };
 
   const onDeleteClick = () => setIsModalСonfirmOpen(true);

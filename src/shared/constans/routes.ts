@@ -1,4 +1,3 @@
-//TODO: убрать если не пригодится
 export const AppRoutes = {
   MAIN: 'main',
   NEWS: 'news',

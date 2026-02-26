@@ -1,10 +1,10 @@
-@import url('./reset.scss');
+@use './variables.scss'as *;
+@import './reset.scss';
 
 
 :root {
-    /* TODO: переменная */
-    background-color: #e0e0e0;
-    color: #333;
+    background-color: $light-gray-color;
+    color: $dark-gray-color;
     font-family: Roboto, sans-serif;
     font-size: 20px;
     ;
