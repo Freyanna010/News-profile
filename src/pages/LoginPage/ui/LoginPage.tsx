@@ -1,10 +1,10 @@
-import { LogimForm } from '@/features/auth/login';
+import { LoginForm } from '@/features';
 
 const LoginPage = () => {
   return (
     <div>
       <h1>Авторизация</h1>
-      <LogimForm />
+      <LoginForm />
     </div>
   );
 };

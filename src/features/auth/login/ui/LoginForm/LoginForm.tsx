@@ -7,7 +7,7 @@ import { Button } from '@/shared/ui/Button';
 import FormItem from '@/shared/ui/Form/FormItems/FormItem';
 import Input from '@/shared/ui/Input';
 
-import { loginSchema, type LoginFormData } from '../../model/loginShema';
+import { loginSchema, type LoginFormData } from './loginShema';
 
 const LoginForm = () => {
   const [login, { isLoading }] = useLoginMutation();

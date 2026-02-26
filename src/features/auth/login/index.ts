@@ -1,1 +1,2 @@
-export { LogimForm } from './ui/LogimForm';
+export { LoginForm } from './ui/LoginForm';
+export { LoginLink } from './ui/LoginLink';
