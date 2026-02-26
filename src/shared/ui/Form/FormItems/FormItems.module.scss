@@ -1,0 +1,13 @@
+@use "../../../../app/styles/variables.scss"as *;
+
+.formItem {
+    display: flex;
+    flex-direction: column;
+    font-size: 0.8em;
+    gap: 0.2em;
+}
+
+.error {
+    color: $error-color;
+    font-size: 0.7em;
+}

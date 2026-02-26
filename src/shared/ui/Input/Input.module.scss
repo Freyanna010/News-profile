@@ -1,0 +1,33 @@
+@use "../../../app/styles/variables.scss"as *;
+
+.sm {
+  font-size: 0.8em;
+}
+
+.md {
+  font-size: 1em;
+}
+
+.xl {
+  font-size: 1.5em;
+}
+
+.input {
+  background: none;
+  border: $darck-divider;
+  height: 1rem;
+  padding: 1rem;
+  width: 100%;
+
+  &:hover,
+  &:focus {
+    background: none;
+    border: $perpule-divider;
+    outline: none;
+  }
+
+  &::placeholder {
+    color: $medium-gray-color;
+    font-size: 0.8rem;
+  }
+}
