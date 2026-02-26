@@ -1,3 +1,5 @@
+import { CiLogin } from 'react-icons/ci';
+
 import { ROUTE_PATH } from '@/shared/constans';
 import { useAuth } from '@/shared/libs';
 import { AppLink } from '@/shared/ui/AppLink';
@@ -9,7 +11,7 @@ const LoginLink = () => {
 
   return (
     <AppLink to={ROUTE_PATH.login} type="primary" activeType="secondary">
-      <p>Войти</p>
+      <CiLogin />
     </AppLink>
   );
 };
